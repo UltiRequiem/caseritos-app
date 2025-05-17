@@ -1,0 +1,3 @@
+[submodule "frontend/shiny-surf-1ee0"]
+	path = frontend/shiny-surf-1ee0
+	url = git@github.com:UltiRequiem/shiny-surf-1ee0.git
