@@ -1,5 +1,5 @@
 {
-  "name": "shiny-surf-1ee0",
+  "name": "caserito-app-landingpage",
   "description": "Build a full-stack web application with Next.js.",
   "cloudflare": {
     "label": "Next.js Framework Starter",
@@ -31,10 +31,11 @@
     "wrangler": "4.12.0"
   },
   "scripts": {
-    "build": "opennextjs-cloudflare build",
+    "build2": "opennextjs-cloudflare build",
+    "build": "next build",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
     "check": "opennextjs-cloudflare build && tsc && wrangler deploy --dry-run",
-    "deploy": "opennextjs-cloudflare build && wrangler deploy",
+    "deploy": "wrangler deploy",
     "dev": "next dev",
     "lint": "next lint",
     "preview": "opennextjs-cloudflare build && wrangler dev",
