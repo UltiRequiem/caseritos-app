@@ -6,3 +6,7 @@ source .venv/bin/activate
 
 uv pip install pip
 pip install nearai
+
+## INTEGRATIONS
+
+https://docs.near.ai/agents/integration/#5-process-assistant-responses
