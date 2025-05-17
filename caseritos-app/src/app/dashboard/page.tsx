@@ -1,15 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import { Card, StarRating } from "@/components/ui-components"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BarChart3, ShoppingBag, User, Star, Settings, ExternalLink, Users, Calendar } from "lucide-react"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { StarRating } from "@/components/ui/star-rating";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  BarChart3,
+  ShoppingBag,
+  User,
+  Star,
+  Settings,
+  ExternalLink,
+  Users,
+  Calendar,
+} from "lucide-react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { Card } from "@/components/ui/card";
 
 // Datos de ejemplo para el vendedor
 const vendedorData = {
@@ -17,14 +27,15 @@ const vendedorData = {
   nombre: "María López",
   avatar: "/diverse-woman-avatar.png",
   tienda: "Frutas y Verduras Orgánicas",
-  descripcion: "Vendo frutas y verduras orgánicas cultivadas en mi huerto familiar. Productos frescos y de temporada.",
+  descripcion:
+    "Vendo frutas y verduras orgánicas cultivadas en mi huerto familiar. Productos frescos y de temporada.",
   ubicacion: "Mercado Central, Puesto #42",
   miembroDesde: new Date(2023, 2, 15),
   calificacionPromedio: 4.7,
   totalReseñas: 28,
   ventasMes: 42,
   ingresosMes: 1250,
-}
+};
 
 // Datos de ejemplo para las reseñas recientes
 const reseñasRecientes = [
@@ -46,10 +57,11 @@ const reseñasRecientes = [
     id: "3",
     cliente: "Carlos Rodríguez",
     rating: 5,
-    texto: "Increíble experiencia de compra. Los productos son de primera calidad.",
+    texto:
+      "Increíble experiencia de compra. Los productos son de primera calidad.",
     fecha: new Date(2025, 1, 28),
   },
-]
+];
 
 // Datos de ejemplo para las ventas recientes
 const ventasRecientes = [
@@ -74,18 +86,18 @@ const ventasRecientes = [
     monto: 18.2,
     fecha: new Date(2025, 3, 20),
   },
-]
+];
 
 export default function Dashboard() {
-  const router = useRouter()
-  const [linkCopied, setLinkCopied] = useState(false)
+  const router = useRouter();
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const copyProfileLink = () => {
-    const profileUrl = `${window.location.origin}/review/${vendedorData.id}`
-    navigator.clipboard.writeText(profileUrl)
-    setLinkCopied(true)
-    setTimeout(() => setLinkCopied(false), 2000)
-  }
+    const profileUrl = `${window.location.origin}/review/${vendedorData.id}`;
+    navigator.clipboard.writeText(profileUrl);
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -100,15 +112,27 @@ export default function Dashboard() {
                 height={40}
                 className="rounded-xl"
               />
-              <h1 className="text-xl font-bold ml-2 hidden sm:block">Caserito</h1>
+              <h1 className="text-xl font-bold ml-2 hidden sm:block">
+                Caserito
+              </h1>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={() => router.push("/perfil")}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => router.push("/perfil")}
+              >
                 <User className="h-5 w-5" />
                 <span className="ml-2 hidden sm:inline">Mi Perfil</span>
               </Button>
-              <Avatar className="h-8 w-8 cursor-pointer" onClick={() => router.push("/perfil")}>
-                <AvatarImage src={vendedorData.avatar || "/placeholder.svg"} alt={vendedorData.nombre} />
+              <Avatar
+                className="h-8 w-8 cursor-pointer"
+                onClick={() => router.push("/perfil")}
+              >
+                <AvatarImage
+                  src={vendedorData.avatar || "/placeholder.svg"}
+                  alt={vendedorData.nombre}
+                />
                 <AvatarFallback>{vendedorData.nombre.charAt(0)}</AvatarFallback>
               </Avatar>
             </div>
@@ -123,35 +147,70 @@ export default function Dashboard() {
             <div className="bg-white rounded-xl shadow-sm p-4 sticky top-24">
               <div className="flex flex-col items-center mb-6 p-4">
                 <Avatar className="h-20 w-20 mb-3">
-                  <AvatarImage src={vendedorData.avatar || "/placeholder.svg"} alt={vendedorData.nombre} />
-                  <AvatarFallback>{vendedorData.nombre.charAt(0)}</AvatarFallback>
+                  <AvatarImage
+                    src={vendedorData.avatar || "/placeholder.svg"}
+                    alt={vendedorData.nombre}
+                  />
+                  <AvatarFallback>
+                    {vendedorData.nombre.charAt(0)}
+                  </AvatarFallback>
                 </Avatar>
-                <h2 className="text-lg font-bold text-center">{vendedorData.nombre}</h2>
-                <p className="text-sm text-muted-foreground text-center">{vendedorData.tienda}</p>
+                <h2 className="text-lg font-bold text-center">
+                  {vendedorData.nombre}
+                </h2>
+                <p className="text-sm text-muted-foreground text-center">
+                  {vendedorData.tienda}
+                </p>
                 <div className="flex items-center mt-2">
-                  <StarRating rating={Math.round(vendedorData.calificacionPromedio)} readOnly size={16} />
-                  <span className="ml-2 text-sm">{vendedorData.calificacionPromedio.toFixed(1)}</span>
+                  <StarRating
+                    rating={Math.round(vendedorData.calificacionPromedio)}
+                    readOnly
+                    size={16}
+                  />
+                  <span className="ml-2 text-sm">
+                    {vendedorData.calificacionPromedio.toFixed(1)}
+                  </span>
                 </div>
               </div>
 
               <nav className="space-y-1">
-                <Button variant="ghost" className="w-full justify-start" onClick={() => router.push("/dashboard")}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => router.push("/dashboard")}
+                >
                   <BarChart3 className="h-5 w-5 mr-2" />
                   Dashboard
                 </Button>
-                <Button variant="ghost" className="w-full justify-start" onClick={() => router.push("/ventas")}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => router.push("/ventas")}
+                >
                   <ShoppingBag className="h-5 w-5 mr-2" />
                   Ventas
                 </Button>
-                <Button variant="ghost" className="w-full justify-start" onClick={() => router.push("/resenas")}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => router.push("/resenas")}
+                >
                   <Star className="h-5 w-5 mr-2" />
                   Reseñas
                 </Button>
-                <Button variant="ghost" className="w-full justify-start" onClick={() => router.push("/perfil")}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => router.push("/perfil")}
+                >
                   <User className="h-5 w-5 mr-2" />
                   Mi Perfil
                 </Button>
-                <Button variant="ghost" className="w-full justify-start" onClick={() => router.push("/configuracion")}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => router.push("/configuracion")}
+                >
                   <Settings className="h-5 w-5 mr-2" />
                   Configuración
                 </Button>
@@ -166,21 +225,31 @@ export default function Dashboard() {
               <Card className="p-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Calificación</p>
-                    <h3 className="text-2xl font-bold mt-1">{vendedorData.calificacionPromedio.toFixed(1)}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Calificación
+                    </p>
+                    <h3 className="text-2xl font-bold mt-1">
+                      {vendedorData.calificacionPromedio.toFixed(1)}
+                    </h3>
                   </div>
                   <div className="bg-caserito-green/10 p-2 rounded-full">
                     <Star className="h-6 w-6 text-caserito-green" />
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">De {vendedorData.totalReseñas} reseñas</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  De {vendedorData.totalReseñas} reseñas
+                </p>
               </Card>
 
               <Card className="p-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Ventas del mes</p>
-                    <h3 className="text-2xl font-bold mt-1">{vendedorData.ventasMes}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Ventas del mes
+                    </p>
+                    <h3 className="text-2xl font-bold mt-1">
+                      {vendedorData.ventasMes}
+                    </h3>
                   </div>
                   <div className="bg-caserito-blue/10 p-2 rounded-full">
                     <ShoppingBag className="h-6 w-6 text-caserito-blue" />
@@ -194,7 +263,9 @@ export default function Dashboard() {
               <Card className="p-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Clientes nuevos</p>
+                    <p className="text-sm text-muted-foreground">
+                      Clientes nuevos
+                    </p>
                     <h3 className="text-2xl font-bold mt-1">18</h3>
                   </div>
                   <div className="bg-purple-100 p-2 rounded-full">
@@ -213,7 +284,8 @@ export default function Dashboard() {
                 <h2 className="text-lg font-bold">Generar nueva venta</h2>
               </div>
               <p className="text-sm text-muted-foreground mb-3">
-                Registra una nueva venta para que tu cliente pueda dejar una reseña verificada
+                Registra una nueva venta para que tu cliente pueda dejar una
+                reseña verificada
               </p>
               <Button
                 onClick={() => router.push("/ventas/nueva")}
@@ -246,7 +318,10 @@ export default function Dashboard() {
 
                   <div className="space-y-4">
                     {reseñasRecientes.map((reseña) => (
-                      <div key={reseña.id} className="border-b pb-3 last:border-0">
+                      <div
+                        key={reseña.id}
+                        className="border-b pb-3 last:border-0"
+                      >
                         <div className="flex items-center justify-between mb-1">
                           <p className="font-medium">{reseña.cliente}</p>
                           <p className="text-xs text-muted-foreground">
@@ -254,7 +329,11 @@ export default function Dashboard() {
                           </p>
                         </div>
                         <div className="flex items-center mb-2">
-                          <StarRating rating={reseña.rating} readOnly size={14} />
+                          <StarRating
+                            rating={reseña.rating}
+                            readOnly
+                            size={14}
+                          />
                         </div>
                         <p className="text-sm">{reseña.texto}</p>
                       </div>
@@ -278,7 +357,10 @@ export default function Dashboard() {
 
                   <div className="space-y-4">
                     {ventasRecientes.map((venta) => (
-                      <div key={venta.id} className="border-b pb-3 last:border-0">
+                      <div
+                        key={venta.id}
+                        className="border-b pb-3 last:border-0"
+                      >
                         <div className="flex items-center justify-between mb-1">
                           <p className="font-medium">{venta.cliente}</p>
                           <p className="text-xs text-muted-foreground">
@@ -286,7 +368,9 @@ export default function Dashboard() {
                           </p>
                         </div>
                         <p className="text-sm mb-1">{venta.productos}</p>
-                        <p className="text-sm font-bold">${venta.monto.toFixed(2)}</p>
+                        <p className="text-sm font-bold">
+                          ${venta.monto.toFixed(2)}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -304,7 +388,9 @@ export default function Dashboard() {
                 </Button>
               </div>
               <div className="h-48 flex items-center justify-center border rounded-md">
-                <p className="text-muted-foreground">Gráfico de actividad (ventas y reseñas)</p>
+                <p className="text-muted-foreground">
+                  Gráfico de actividad (ventas y reseñas)
+                </p>
               </div>
             </Card>
           </div>
@@ -314,24 +400,40 @@ export default function Dashboard() {
       {/* Barra de navegación móvil */}
       <div className="md:hidden bg-white border-t fixed bottom-0 left-0 right-0 z-10">
         <div className="flex justify-around p-2">
-          <Button variant="ghost" className="flex flex-col items-center p-2" onClick={() => router.push("/dashboard")}>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center p-2"
+            onClick={() => router.push("/dashboard")}
+          >
             <BarChart3 className="h-5 w-5" />
             <span className="text-xs mt-1">Dashboard</span>
           </Button>
-          <Button variant="ghost" className="flex flex-col items-center p-2" onClick={() => router.push("/ventas")}>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center p-2"
+            onClick={() => router.push("/ventas")}
+          >
             <ShoppingBag className="h-5 w-5" />
             <span className="text-xs mt-1">Ventas</span>
           </Button>
-          <Button variant="ghost" className="flex flex-col items-center p-2" onClick={() => router.push("/resenas")}>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center p-2"
+            onClick={() => router.push("/resenas")}
+          >
             <Star className="h-5 w-5" />
             <span className="text-xs mt-1">Reseñas</span>
           </Button>
-          <Button variant="ghost" className="flex flex-col items-center p-2" onClick={() => router.push("/perfil")}>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center p-2"
+            onClick={() => router.push("/perfil")}
+          >
             <User className="h-5 w-5" />
             <span className="text-xs mt-1">Perfil</span>
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
