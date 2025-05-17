@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { StarRating } from "@/components/ui/star-rating";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { StarRating } from "@//components/ui/star-rating";
+import { Avatar, AvatarFallback, AvatarImage } from "@//components/ui/avatar";
+import { Input } from "@//components/ui/input";
+import { Button } from "@//components/ui/button";
 import { Search, MapPin, ExternalLink } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Card } from "@//components/ui/card";
 
 // Datos de ejemplo para los vendedores
 const vendedoresData = [

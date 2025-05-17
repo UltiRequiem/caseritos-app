@@ -13,7 +13,6 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     setLoading(true);
 
-    // Simulación de autenticación con Google
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       router.push("/dashboard");
@@ -42,7 +41,7 @@ export default function LoginPage() {
             Bienvenido a Caserito
           </h1>
           <p className="text-muted-foreground text-lg">
-            Gestiona tu negocio y aumenta tus ventas
+            Crea confianza en tus ventas
           </p>
         </div>
 

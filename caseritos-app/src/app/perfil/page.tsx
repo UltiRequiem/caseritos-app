@@ -5,7 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@//components/ui/avatar";
 import {
   Pencil,
   ArrowLeft,
@@ -16,10 +16,10 @@ import {
 } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@//components/ui/button";
+import { Input } from "@//components/ui/input";
+import { Label } from "@//components/ui/label";
+import { Textarea } from "@//components/ui/textarea";
 import { toast } from "sonner";
 
 // Datos de ejemplo para el vendedor

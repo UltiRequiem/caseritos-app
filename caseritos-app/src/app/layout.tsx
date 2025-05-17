@@ -19,9 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${interSans.variable} antialiased`}>{children}</body>
-      <Toaster />
+    <html lang="es">
+      <body className={`${interSans.variable} antialiased`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@//components/ui/input";
+import { Button } from "@//components/ui/button";
 import {
   BarChart3,
   ShoppingBag,
@@ -23,12 +23,20 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@//components/ui/dropdown-menu";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card } from "@/components/ui/card";
-import { StarRating } from "@/components/ui/star-rating";
+import { Avatar, AvatarFallback, AvatarImage } from "@//components/ui/avatar";
+import { Card } from "@//components/ui/card";
+import { StarRating } from "@//components/ui/star-rating";
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@//components/ui/alert-dialog";
 
 // Datos de ejemplo para las reseñas
 const reseñasData = [
@@ -408,18 +416,31 @@ export default function ReseñasPage() {
       </div>
 
       {/* Modal para ver imagen ampliada */}
-      <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-        <div className="relative w-full aspect-video">
-          {selectedImage && (
-            <Image
-              src={selectedImage || "/placeholder.svg"}
-              alt="Imagen ampliada"
-              fill
-              className="object-contain"
-            />
-          )}
-        </div>
-      </Modal>
+      <AlertDialog
+        open={!!selectedImage}
+        onOpenChange={() => setSelectedImage(null)}
+      >
+        <AlertDialogContent className="max-w-4xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Vista ampliada</AlertDialogTitle>
+          </AlertDialogHeader>
+          <div className="relative w-full aspect-video">
+            {selectedImage && (
+              <Image
+                src={selectedImage || "/placeholder.svg"}
+                alt="Imagen ampliada"
+                fill
+                className="object-contain"
+              />
+            )}
+          </div>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setSelectedImage(null)}>
+              Cerrar
+            </AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

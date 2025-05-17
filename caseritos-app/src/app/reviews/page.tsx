@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import { Card, StarRating, Modal } from "@/components/ui-components"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Search, Filter, ChevronDown, Loader2, Calendar, Star } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@//components/ui/avatar";
+import { Input } from "@//components/ui/input";
+import { Button } from "@//components/ui/button";
+import {
+  Search,
+  Filter,
+  ChevronDown,
+  Loader2,
+  Calendar,
+  Star,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,15 +22,21 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"
+} from "@//components/ui/dropdown-menu";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { StarRating } from "@//components/ui/star-rating";
+import { Card } from "@//components/ui/card";
 
 // Datos de ejemplo para las reseñas
 const reviewsData = [
   {
     id: "1",
-    seller: { id: "1", name: "María López", avatar: "/diverse-woman-avatar.png" },
+    seller: {
+      id: "1",
+      name: "María López",
+      avatar: "/diverse-woman-avatar.png",
+    },
     rating: 5,
     text: "Excelente servicio, muy atenta y los productos llegaron en perfecto estado. Definitivamente volveré a comprar con ella. Recomendada al 100%.",
     image: "/market-products.png",
@@ -54,25 +66,27 @@ const reviewsData = [
     image: "/vibrant-fruit-market.png",
     date: new Date(2025, 4, 5),
   },
-]
+];
 
 export default function ReviewsPage() {
-  const router = useRouter()
-  const [reviews, setReviews] = useState(reviewsData)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [expandedReviews, setExpandedReviews] = useState<string[]>([])
+  const router = useRouter();
+  const [reviews, setReviews] = useState(reviewsData);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [expandedReviews, setExpandedReviews] = useState<string[]>([]);
 
   const toggleExpandReview = (id: string) => {
-    setExpandedReviews((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))
-  }
+    setExpandedReviews((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
   const handleLoadMore = async () => {
-    setLoading(true)
+    setLoading(true);
 
     // Simulación de carga de más reseñas
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // Duplicamos las reseñas existentes para simular la carga de más
     setReviews((prev) => [
@@ -81,10 +95,10 @@ export default function ReviewsPage() {
         ...review,
         id: `${review.id}-duplicate-${Date.now()}`,
       })),
-    ])
+    ]);
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -128,12 +142,19 @@ export default function ReviewsPage() {
                 <DropdownMenuLabel>Filtrar por</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuLabel className="text-xs text-muted-foreground">Vendedor</DropdownMenuLabel>
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">
+                    Vendedor
+                  </DropdownMenuLabel>
                   {reviewsData.map((review) => (
                     <DropdownMenuItem key={review.seller.id}>
                       <Avatar className="h-6 w-6 mr-2">
-                        <AvatarImage src={review.seller.avatar || "/placeholder.svg"} alt={review.seller.name} />
-                        <AvatarFallback>{review.seller.name.charAt(0)}</AvatarFallback>
+                        <AvatarImage
+                          src={review.seller.avatar || "/placeholder.svg"}
+                          alt={review.seller.name}
+                        />
+                        <AvatarFallback>
+                          {review.seller.name.charAt(0)}
+                        </AvatarFallback>
                       </Avatar>
                       {review.seller.name}
                     </DropdownMenuItem>
@@ -141,7 +162,9 @@ export default function ReviewsPage() {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuLabel className="text-xs text-muted-foreground">Calificación</DropdownMenuLabel>
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">
+                    Calificación
+                  </DropdownMenuLabel>
                   {[5, 4, 3, 2, 1].map((rating) => (
                     <DropdownMenuItem key={rating}>
                       <div className="flex items-center">
@@ -153,7 +176,9 @@ export default function ReviewsPage() {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuLabel className="text-xs text-muted-foreground">Fecha</DropdownMenuLabel>
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">
+                    Fecha
+                  </DropdownMenuLabel>
                   <DropdownMenuItem>
                     <Calendar className="h-4 w-4 mr-2" />
                     Más recientes
@@ -175,8 +200,13 @@ export default function ReviewsPage() {
             <Card key={review.id} className="overflow-hidden">
               <div className="flex items-center mb-3">
                 <Avatar className="h-10 w-10 mr-3">
-                  <AvatarImage src={review.seller.avatar || "/placeholder.svg"} alt={review.seller.name} />
-                  <AvatarFallback>{review.seller.name.charAt(0)}</AvatarFallback>
+                  <AvatarImage
+                    src={review.seller.avatar || "/placeholder.svg"}
+                    alt={review.seller.name}
+                  />
+                  <AvatarFallback>
+                    {review.seller.name.charAt(0)}
+                  </AvatarFallback>
                 </Avatar>
                 <div>
                   <h3 className="font-medium">{review.seller.name}</h3>
@@ -190,16 +220,30 @@ export default function ReviewsPage() {
               </div>
 
               <div className="mb-3">
-                <p className={expandedReviews.includes(review.id) ? "" : "line-clamp-3"}>{review.text}</p>
+                <p
+                  className={
+                    expandedReviews.includes(review.id) ? "" : "line-clamp-3"
+                  }
+                >
+                  {review.text}
+                </p>
                 {review.text.length > 150 && (
-                  <button onClick={() => toggleExpandReview(review.id)} className="text-sm text-primary mt-1">
-                    {expandedReviews.includes(review.id) ? "Ver menos" : "Ver más"}
+                  <button
+                    onClick={() => toggleExpandReview(review.id)}
+                    className="text-sm text-primary mt-1"
+                  >
+                    {expandedReviews.includes(review.id)
+                      ? "Ver menos"
+                      : "Ver más"}
                   </button>
                 )}
               </div>
 
               {review.image && (
-                <div className="relative w-full h-48 cursor-pointer" onClick={() => setSelectedImage(review.image)}>
+                <div
+                  className="relative w-full h-48 cursor-pointer"
+                  onClick={() => setSelectedImage(review.image)}
+                >
                   <Image
                     src={review.image || "/placeholder.svg"}
                     alt="Imagen de la reseña"
@@ -212,7 +256,11 @@ export default function ReviewsPage() {
           ))}
 
           <div className="flex justify-center py-4">
-            <Button variant="outline" onClick={handleLoadMore} disabled={loading}>
+            <Button
+              variant="outline"
+              onClick={handleLoadMore}
+              disabled={loading}
+            >
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -228,15 +276,6 @@ export default function ReviewsPage() {
           </div>
         </div>
       </main>
-
-      {/* Modal para ver imagen ampliada */}
-      <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-        <div className="relative w-full aspect-video">
-          {selectedImage && (
-            <Image src={selectedImage || "/placeholder.svg"} alt="Imagen ampliada" fill className="object-contain" />
-          )}
-        </div>
-      </Modal>
     </div>
-  )
+  );
 }

@@ -3,10 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { StarRating } from "@/components/ui/star-rating";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { StarRating } from "@//components/ui/star-rating";
+import { Avatar, AvatarFallback, AvatarImage } from "@//components/ui/avatar";
+import { Button } from "@//components/ui/button";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@//components/ui/tabs";
 import {
   BarChart3,
   ShoppingBag,
@@ -19,7 +24,7 @@ import {
 } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Card } from "@/components/ui/card";
+import { Card } from "@//components/ui/card";
 
 // Datos de ejemplo para el vendedor
 const vendedorData = {

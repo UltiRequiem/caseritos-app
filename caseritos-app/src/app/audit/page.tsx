@@ -1,15 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Info, CheckCircle, XCircle, ChevronLeft, ChevronRight } from "lucide-react"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@//components/ui/table";
+import { Button } from "@//components/ui/button";
+import {
+  Info,
+  CheckCircle,
+  XCircle,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@//components/ui/tooltip";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { Badge } from "@//components/ui/badge";
 
 // Datos de ejemplo para los registros de auditoría
 const auditLogsData = [
@@ -48,12 +66,12 @@ const auditLogsData = [
     status: "rejected",
     hash: "0xq1w2e3r4t5y6u7i8o9p0a1s2d3f4g5h6j7k8l9",
   },
-]
+];
 
 export default function AuditPage() {
-  const router = useRouter()
-  const [page, setPage] = useState(1)
-  const [perPage] = useState(10)
+  const router = useRouter();
+  const [page, setPage] = useState(1);
+  const [perPage] = useState(10);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -70,7 +88,11 @@ export default function AuditPage() {
               />
               <h1 className="ml-4 text-xl font-bold">Audit Logs</h1>
             </div>
-            <Button variant="outline" size="sm" onClick={() => router.push("/reviews")}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => router.push("/reviews")}
+            >
               Volver a reseñas
             </Button>
           </div>
@@ -92,10 +114,14 @@ export default function AuditPage() {
               {auditLogsData.map((log) => (
                 <TableRow key={log.id}>
                   <TableCell className="font-medium">{log.reviewId}</TableCell>
-                  <TableCell>{format(log.timestamp, "dd/MM/yyyy HH:mm", { locale: es })}</TableCell>
+                  <TableCell>
+                    {format(log.timestamp, "dd/MM/yyyy HH:mm", { locale: es })}
+                  </TableCell>
                   <TableCell>
                     <Badge
-                      variant={log.status === "approved" ? "default" : "destructive"}
+                      variant={
+                        log.status === "approved" ? "default" : "destructive"
+                      }
                       className="flex items-center w-fit gap-1"
                     >
                       {log.status === "approved" ? (
@@ -108,11 +134,16 @@ export default function AuditPage() {
                   </TableCell>
                   <TableCell className="font-mono text-xs truncate max-w-[200px]">
                     <div className="flex items-center">
-                      {log.hash.substring(0, 10)}...{log.hash.substring(log.hash.length - 6)}
+                      {log.hash.substring(0, 10)}...
+                      {log.hash.substring(log.hash.length - 6)}
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <Button variant="ghost" size="icon" className="h-6 w-6 ml-1">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-6 w-6 ml-1"
+                            >
                               <Info className="h-3 w-3" />
                               <span className="sr-only">Ver hash completo</span>
                             </Button>
@@ -128,7 +159,10 @@ export default function AuditPage() {
               ))}
               {auditLogsData.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                  <TableCell
+                    colSpan={4}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No hay registros de auditoría disponibles.
                   </TableCell>
                 </TableRow>
@@ -138,7 +172,8 @@ export default function AuditPage() {
 
           <div className="flex items-center justify-between p-4 border-t">
             <div className="text-sm text-muted-foreground">
-              Mostrando {auditLogsData.length} de {auditLogsData.length} registros
+              Mostrando {auditLogsData.length} de {auditLogsData.length}{" "}
+              registros
             </div>
             <div className="flex items-center gap-2">
               <Button
@@ -163,5 +198,5 @@ export default function AuditPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
