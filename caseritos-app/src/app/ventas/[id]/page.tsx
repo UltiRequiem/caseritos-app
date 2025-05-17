@@ -64,11 +64,11 @@ const ventaEjemplo = {
   notas: "Entrega a domicilio. Cliente habitual.",
 };
 
-export default function DetalleVentaPage({
-  params,
-}: {
-  params: { id: string };
+export default async function DetalleVentaPage(props: {
+  params: Promise<{ id: string }>;
 }) {
+  const params = await props.params;
+
   const router = useRouter();
   const [venta] = useState(ventaEjemplo);
   const [linkCopied, setLinkCopied] = useState(false);
