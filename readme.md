@@ -1,3 +1,3 @@
 # caseritos app monorepo
 
-LETS GO BOYS!!!
+LET'S GO BOYS!!!
