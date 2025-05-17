@@ -1,3 +1,3 @@
-# caseritos app monorepo
+# Caserito App
 
-LET'S GO BOYS!!!
+> https://caserito.app/
