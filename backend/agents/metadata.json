@@ -1,6 +1,6 @@
 {
   "name": "image_judge",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This agent will receive an image and a description, and check if the description is coherent",
   "category": "agent",
   "tags": ["featured", "vision"],
@@ -20,4 +20,3 @@
   },
   "show_entry": true
 }
-
