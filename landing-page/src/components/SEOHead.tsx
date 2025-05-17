@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 export const SEOHead = ({
-  title = "Caserito - Compra como siempre. Seguro como nunca.",
-  description = "Caserito es una app que permite comprar a vendedores informales de forma segura, con un sistema de reputación pública e identidad soberana.",
+  title = "Caserito - Construye tu reputación. Vende más.",
+  description = "Caserito es una plataforma que ayuda a vendedores a construir y mostrar su reputación digital, mejorando la confianza de sus clientes y aumentando sus ventas.",
   canonical = "https://caserito.app",
   ogType = "website",
   ogImage = "/og-image.png",

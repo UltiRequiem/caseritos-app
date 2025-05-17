@@ -31,7 +31,7 @@
     "wrangler": "4.12.0"
   },
   "scripts": {
-    "build": "next build",
+    "build": "opennextjs-cloudflare build",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
     "check": "opennextjs-cloudflare build && tsc && wrangler deploy --dry-run",
     "deploy": "opennextjs-cloudflare build && wrangler deploy",

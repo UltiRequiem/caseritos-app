@@ -46,31 +46,31 @@ export const Benefits = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
-            Beneficios de Caserito
+            Potencia tu perfil de vendedor
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-600">
-            Transformando el comercio informal en una experiencia segura y
-            confiable.
+            Construye una reputación digital sólida que aumente la confianza de
+            tus clientes y te ayude a incrementar tus ventas.
           </p>
         </div>
 
         <div className="space-y-24">
           <Benefit
-            title="Compras 100% seguras"
-            description="No más estafas: en Caserito tu dinero está seguro hasta que confirms que recibiste el producto tal como lo esperabas. Acabamos con las estafas que ocurren diariamente en redes sociales."
-            imageSrc="Ilustración de transacción segura"
+            title="Página de perfil completa y profesional"
+            description="Obtén un perfil público que muestra tu historial de ventas, puntuación y reseñas detalladas que puedes compartir con un simple enlace o código QR en tus redes sociales."
+            imageSrc="Ilustración de perfil con reseñas"
           />
 
           <Benefit
-            title="Identidad digital confiable"
-            description="Los vendedores construyen su reputación digital de manera portable e inmutable, respaldada por blockchain. Esta identidad les pertenece y pueden usarla en cualquier plataforma."
-            imageSrc="Ilustración de identidad digital"
+            title="Historial de ventas verificable"
+            description="Cada transacción exitosa construye tu reputación digital inmutable en blockchain. Tus clientes pueden verificar fácilmente tu historial de entregas exitosas antes de comprar."
+            imageSrc="Ilustración de historial verificado"
             reverse
           />
 
           <Benefit
-            title="Aumenta tus ventas como vendedor"
-            description="Destácate de la competencia mostrando tu perfil verificado de Caserito. Los compradores confiarán más en ti al ver tus calificaciones positivas y tu historial transparente."
+            title="Incrementa tus ganancias"
+            description="Los vendedores con perfiles verificados y buenas calificaciones pueden cobrar hasta un 20% más por sus productos, ya que los clientes están dispuestos a pagar más por la seguridad y confianza."
             imageSrc="Ilustración de crecimiento de ventas"
           />
         </div>

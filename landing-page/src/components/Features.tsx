@@ -14,37 +14,37 @@ export const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
-            ¿Qué hace única a Caserito?
+            ¿Por qué los vendedores aman Caserito?
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-600">
-            Caserito reinventa el comercio informal con tecnología innovadora
-            para hacerlo seguro y confiable.
+            Caserito te permite construir y mostrar una reputación sólida que
+            incrementa la confianza y te ayuda a vender más.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             icon={<ShieldIcon className="w-7 h-7" />}
-            title="Pago seguro tipo escrow"
-            description="El dinero se retiene hasta que confirmes que recibiste el producto en perfectas condiciones."
+            title="Perfil profesional compartible"
+            description="Crea un perfil que destaque tu reputación y puedas compartir fácilmente con potenciales clientes."
           />
 
           <FeatureCard
             icon={<StarIcon className="w-7 h-7" />}
-            title="Sistema de reputación inmutable"
-            description="Calificaciones y comentarios visibles para todos los compradores, imposible de manipular."
+            title="Reputación verificable"
+            description="Acumula calificaciones positivas de clientes que construirán tu credibilidad y generarán confianza instantánea."
           />
 
           <FeatureCard
             icon={<BlockchainIcon className="w-7 h-7" />}
-            title="Respaldado por blockchain"
-            description="Toda la información es transparente y auditable gracias a la tecnología blockchain de NEAR."
+            title="Reputación inmutable en blockchain"
+            description="Tu historial está asegurado en blockchain, no puede ser manipulado o borrado, lo que genera mayor confianza en tus clientes."
           />
 
           <FeatureCard
             icon={<IdentityIcon className="w-7 h-7" />}
-            title="Identidad soberana del vendedor"
-            description="Los vendedores construyen su historial sin depender de redes sociales o plataformas externas."
+            title="Independencia de plataformas"
+            description="Tu reputación es portable, no depende de Instagram, Facebook o cualquier otra red social, te pertenece a ti."
           />
 
           <FeatureCard
@@ -55,8 +55,8 @@ export const Features = () => {
 
           <FeatureCard
             icon={<StarIcon className="w-7 h-7" />}
-            title="Perfil de vendedor portable"
-            description="Los vendedores pueden mostrar su 'Perfil Caserito' en todas sus redes sociales."
+            title="Página de perfil completa"
+            description="Tu perfil público muestra tu historial de ventas, calificación promedio y reseñas detalladas de tus clientes para generar confianza."
           />
         </div>
       </div>

@@ -9,15 +9,16 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Compra como siempre.
-              <span className="text-blue-600 block">Seguro como nunca.</span>
+              Construye tu reputación.
+              <span className="text-blue-600 block">Vende más.</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
-              Caserito te protege contra estafas al comprar por redes sociales,
-              reteniendo el pago hasta que recibas tu producto.
+              Caserito te ayuda a construir una sólida reputación digital que
+              puedes compartir fácilmente, aumentando la confianza de tus
+              clientes y mejorando tus ventas.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="text-lg">Descarga la app</Button>
+              <Button className="text-lg">Crear mi perfil</Button>
               <Button primary={false} className="text-lg">
                 Ver cómo funciona
               </Button>
@@ -48,8 +49,10 @@ export const Hero = () => {
                       </div>
                     </div>
                   </div>
-                  <p className="text-xl mb-4">App Mockup</p>
-                  <p className="opacity-80">Screen de la aplicación Caserito</p>
+                  <p className="text-xl mb-4">Perfil Público</p>
+                  <p className="opacity-80">
+                    Historial, calificaciones y reseñas
+                  </p>
                 </div>
               </div>
             </div>
