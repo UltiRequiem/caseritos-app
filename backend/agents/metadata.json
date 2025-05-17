@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "This agent will receive an image and a description, and check if the description is coherent",
   "category": "agent",
-  "tags": [],
+  "tags": ["featured", "vision"],
   "details": {
     "agent": {
+      "allow_message_attachments": true,
+      "allow_message_attachments_accept_mime_types": ["image/*"],
+      "framework": "standard",
+
       "defaults": {
         "model": "llama-v3p1-70b-instruct",
         "model_provider": "fireworks",
@@ -16,3 +20,4 @@
   },
   "show_entry": true
 }
+
