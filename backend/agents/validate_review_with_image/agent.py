@@ -12,7 +12,8 @@ Keep responses under 100 words. Prioritize objective visual elements."""
 
 def load_image(bytes: bytes) -> Image.Image:
     try:
-        return Image.open(io.BytesIO(bytes))
+        img = Image.open(io.BytesIO(bytes))
+        return img
     except Exception as e:
         raise ValueError(f"Invalid image: {str(e)}")
 
@@ -25,6 +26,7 @@ def process_message(env: Environment, message):
             continue
             
         file_bytes = env.read_file_by_id(attachment.file_id, decode=None)
+        
         if not isinstance(file_bytes, bytes):
             continue
             
@@ -43,12 +45,17 @@ def process_message(env: Environment, message):
 def build_content(images, user_text):
     content = []
     for img in images:
+        max_size = (800, 800)
+        img.thumbnail(max_size, Image.Resampling.LANCZOS)
+        
         buffer = io.BytesIO()
-        img.save(buffer, format=img.format)
+        img_format = "JPEG"
+        img.convert("RGB").save(buffer, format=img_format, quality=85)
+        
         img_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
         content.append({
             "type": "image_url",
-            "image_url": {"url": f"data:image/{img.format};base64,{img_base64}"}
+            "image_url": {"url": f"data:image/{img_format.lower()};base64,{img_base64}"}
         })
     
     content.append({"type": "text", "text": user_text})
@@ -71,7 +78,7 @@ def run(env: Environment):
         
         messages.append({
             "role": "user",
-            "content": str(content)
+            "content": content
         })
         
         try:

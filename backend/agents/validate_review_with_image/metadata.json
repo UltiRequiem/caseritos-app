@@ -1,6 +1,6 @@
 {
   "name": "validate_review_with_image",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This agent will receive an image and a description, and check if the description is coherent.",
   "category": "agent",
   "tags": ["featured", "vision"],
