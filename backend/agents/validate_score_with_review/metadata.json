@@ -1,15 +1,11 @@
 {
-  "name": "image_judge",
+  "name": "review_score_by_judge",
   "version": "0.1.0",
-  "description": "This agent will receive an image and a description, and check if the description is coherent",
+  "description": "This agent will receive a score and a review, and check if the score is coherent",
   "category": "agent",
   "tags": ["featured", "vision"],
   "details": {
     "agent": {
-      "allow_message_attachments": true,
-      "allow_message_attachments_accept_mime_types": ["image/*"],
-      "framework": "standard",
-
       "defaults": {
         "model": "llama-v3p1-70b-instruct",
         "model_provider": "fireworks",
