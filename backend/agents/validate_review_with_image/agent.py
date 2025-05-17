@@ -5,10 +5,14 @@ import base64
 
 MODEL = "fireworks::accounts/fireworks/models/llama4-scout-instruct-basic"
 
-SYSTEM_PROMPT = """You're an image description validator. Analyze the image and user's description. 
-If accurate, respond with "Accurate: [brief confirmation]". 
-If inaccurate, respond with "Inaccurate: [concise explanation]". 
-Keep responses under 100 words. Prioritize objective visual elements."""
+SYSTEM_PROMPT = """You're an image description validator. Analyze the image and user's description.
+Your response MUST be valid JSON in this format: {"accurate": boolean, "explanation": "string"}
+
+If the description is accurate, respond with: {"accurate": true, "explanation": "brief confirmation"}
+If the description is inaccurate, respond with: {"accurate": false, "explanation": "concise explanation"}
+
+Keep explanations under 100 words. Prioritize objective visual elements. 
+IMPORTANT: Only return the JSON object, no additional text before or after."""
 
 def load_image(bytes: bytes) -> Image.Image:
     try:
