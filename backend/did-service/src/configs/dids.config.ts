@@ -9,13 +9,20 @@ export interface ProviderConfiguration {
 }
 
 export default () => {
-  const { NETWORK_CHAIN_ID = 80002, NETWORK_REGISTRY = "0xBC56d0883ef228b2B16420E9002Ece0A46c893F8", NETWORK_RPC_URL, NEAR_CONTRACT_ID = "neardti.testnet", NEAR_NETWORK_ID, NEAR_NODE_URL="https://rpc.testnet.near.org" } = process.env;
+  const {
+    NETWORK_CHAIN_ID = 80002,
+    NETWORK_REGISTRY = '0xBC56d0883ef228b2B16420E9002Ece0A46c893F8',
+    NETWORK_RPC_URL,
+    NEAR_CONTRACT_ID = 'neardti.testnet',
+    NEAR_NETWORK_ID,
+    NEAR_NODE_URL = 'https://rpc.testnet.near.org',
+  } = process.env;
 
-  const default_network:ProviderConfiguration = {
+  const default_network: ProviderConfiguration = {
     chainId: Number(NETWORK_CHAIN_ID),
     registry: NETWORK_REGISTRY,
     rpcUrl: NETWORK_RPC_URL,
-  }
+  };
 
   return {
     ethr: {
@@ -25,7 +32,7 @@ export default () => {
     near: {
       contractId: NEAR_CONTRACT_ID,
       networkId: NEAR_NETWORK_ID,
-      nodeUrl: NEAR_NODE_URL
+      nodeUrl: NEAR_NODE_URL,
     },
   };
 };
