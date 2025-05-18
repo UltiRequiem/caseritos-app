@@ -38,6 +38,21 @@ export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTok
  * 
  */
 export type Authenticator = $Result.DefaultSelection<Prisma.$AuthenticatorPayload>
+/**
+ * Model Sale
+ * 
+ */
+export type Sale = $Result.DefaultSelection<Prisma.$SalePayload>
+/**
+ * Model Review
+ * 
+ */
+export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
+/**
+ * Model SaleIntent
+ * 
+ */
+export type SaleIntent = $Result.DefaultSelection<Prisma.$SaleIntentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -213,6 +228,36 @@ export class PrismaClient<
     * ```
     */
   get authenticator(): Prisma.AuthenticatorDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sale`: Exposes CRUD operations for the **Sale** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sales
+    * const sales = await prisma.sale.findMany()
+    * ```
+    */
+  get sale(): Prisma.SaleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.review`: Exposes CRUD operations for the **Review** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Reviews
+    * const reviews = await prisma.review.findMany()
+    * ```
+    */
+  get review(): Prisma.ReviewDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.saleIntent`: Exposes CRUD operations for the **SaleIntent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SaleIntents
+    * const saleIntents = await prisma.saleIntent.findMany()
+    * ```
+    */
+  get saleIntent(): Prisma.SaleIntentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -657,7 +702,10 @@ export namespace Prisma {
     Session: 'Session',
     User: 'User',
     VerificationToken: 'VerificationToken',
-    Authenticator: 'Authenticator'
+    Authenticator: 'Authenticator',
+    Sale: 'Sale',
+    Review: 'Review',
+    SaleIntent: 'SaleIntent'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +724,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "account" | "session" | "user" | "verificationToken" | "authenticator"
+      modelProps: "account" | "session" | "user" | "verificationToken" | "authenticator" | "sale" | "review" | "saleIntent"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1050,6 +1098,228 @@ export namespace Prisma {
           }
         }
       }
+      Sale: {
+        payload: Prisma.$SalePayload<ExtArgs>
+        fields: Prisma.SaleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SaleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SaleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          findFirst: {
+            args: Prisma.SaleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SaleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          findMany: {
+            args: Prisma.SaleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          create: {
+            args: Prisma.SaleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          createMany: {
+            args: Prisma.SaleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SaleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          delete: {
+            args: Prisma.SaleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          update: {
+            args: Prisma.SaleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          deleteMany: {
+            args: Prisma.SaleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SaleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SaleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
+          }
+          upsert: {
+            args: Prisma.SaleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalePayload>
+          }
+          aggregate: {
+            args: Prisma.SaleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSale>
+          }
+          groupBy: {
+            args: Prisma.SaleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SaleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SaleCountArgs<ExtArgs>
+            result: $Utils.Optional<SaleCountAggregateOutputType> | number
+          }
+        }
+      }
+      Review: {
+        payload: Prisma.$ReviewPayload<ExtArgs>
+        fields: Prisma.ReviewFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReviewFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReviewFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          findFirst: {
+            args: Prisma.ReviewFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReviewFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          findMany: {
+            args: Prisma.ReviewFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+          }
+          create: {
+            args: Prisma.ReviewCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          createMany: {
+            args: Prisma.ReviewCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReviewCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+          }
+          delete: {
+            args: Prisma.ReviewDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          update: {
+            args: Prisma.ReviewUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReviewDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReviewUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReviewUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+          }
+          upsert: {
+            args: Prisma.ReviewUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          aggregate: {
+            args: Prisma.ReviewAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReview>
+          }
+          groupBy: {
+            args: Prisma.ReviewGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReviewGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReviewCountArgs<ExtArgs>
+            result: $Utils.Optional<ReviewCountAggregateOutputType> | number
+          }
+        }
+      }
+      SaleIntent: {
+        payload: Prisma.$SaleIntentPayload<ExtArgs>
+        fields: Prisma.SaleIntentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SaleIntentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SaleIntentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          findFirst: {
+            args: Prisma.SaleIntentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SaleIntentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          findMany: {
+            args: Prisma.SaleIntentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>[]
+          }
+          create: {
+            args: Prisma.SaleIntentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          createMany: {
+            args: Prisma.SaleIntentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SaleIntentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>[]
+          }
+          delete: {
+            args: Prisma.SaleIntentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          update: {
+            args: Prisma.SaleIntentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          deleteMany: {
+            args: Prisma.SaleIntentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SaleIntentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SaleIntentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>[]
+          }
+          upsert: {
+            args: Prisma.SaleIntentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaleIntentPayload>
+          }
+          aggregate: {
+            args: Prisma.SaleIntentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSaleIntent>
+          }
+          groupBy: {
+            args: Prisma.SaleIntentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SaleIntentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SaleIntentCountArgs<ExtArgs>
+            result: $Utils.Optional<SaleIntentCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1139,6 +1409,9 @@ export namespace Prisma {
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
     authenticator?: AuthenticatorOmit
+    sale?: SaleOmit
+    review?: ReviewOmit
+    saleIntent?: SaleIntentOmit
   }
 
   /* Types for Logging */
@@ -1236,12 +1509,20 @@ export namespace Prisma {
     accounts: number
     sessions: number
     Authenticator: number
+    Sale: number
+    reviewsAsUser: number
+    reviewsAsBuyer: number
+    SaleIntent: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     Authenticator?: boolean | UserCountOutputTypeCountAuthenticatorArgs
+    Sale?: boolean | UserCountOutputTypeCountSaleArgs
+    reviewsAsUser?: boolean | UserCountOutputTypeCountReviewsAsUserArgs
+    reviewsAsBuyer?: boolean | UserCountOutputTypeCountReviewsAsBuyerArgs
+    SaleIntent?: boolean | UserCountOutputTypeCountSaleIntentArgs
   }
 
   // Custom InputTypes
@@ -1274,6 +1555,96 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAuthenticatorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AuthenticatorWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSaleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountReviewsAsUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReviewWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountReviewsAsBuyerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReviewWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleIntentWhereInput
+  }
+
+
+  /**
+   * Count Type SaleCountOutputType
+   */
+
+  export type SaleCountOutputType = {
+    SaleIntent: number
+  }
+
+  export type SaleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SaleIntent?: boolean | SaleCountOutputTypeCountSaleIntentArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SaleCountOutputType without action
+   */
+  export type SaleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleCountOutputType
+     */
+    select?: SaleCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SaleCountOutputType without action
+   */
+  export type SaleCountOutputTypeCountSaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleIntentWhereInput
+  }
+
+
+  /**
+   * Count Type ReviewCountOutputType
+   */
+
+  export type ReviewCountOutputType = {
+    SaleIntent: number
+  }
+
+  export type ReviewCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SaleIntent?: boolean | ReviewCountOutputTypeCountSaleIntentArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ReviewCountOutputType without action
+   */
+  export type ReviewCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReviewCountOutputType
+     */
+    select?: ReviewCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ReviewCountOutputType without action
+   */
+  export type ReviewCountOutputTypeCountSaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleIntentWhereInput
   }
 
 
@@ -3523,6 +3894,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
+    did: string | null
     emailVerified: Date | null
     image: string | null
   }
@@ -3531,6 +3903,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
+    did: string | null
     emailVerified: Date | null
     image: string | null
   }
@@ -3539,6 +3912,7 @@ export namespace Prisma {
     id: number
     name: number
     email: number
+    did: number
     emailVerified: number
     image: number
     _all: number
@@ -3549,6 +3923,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    did?: true
     emailVerified?: true
     image?: true
   }
@@ -3557,6 +3932,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    did?: true
     emailVerified?: true
     image?: true
   }
@@ -3565,6 +3941,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    did?: true
     emailVerified?: true
     image?: true
     _all?: true
@@ -3646,6 +4023,7 @@ export namespace Prisma {
     id: string
     name: string | null
     email: string | null
+    did: string | null
     emailVerified: Date | null
     image: string | null
     _count: UserCountAggregateOutputType | null
@@ -3671,11 +4049,16 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    did?: boolean
     emailVerified?: boolean
     image?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     Authenticator?: boolean | User$AuthenticatorArgs<ExtArgs>
+    Sale?: boolean | User$SaleArgs<ExtArgs>
+    reviewsAsUser?: boolean | User$reviewsAsUserArgs<ExtArgs>
+    reviewsAsBuyer?: boolean | User$reviewsAsBuyerArgs<ExtArgs>
+    SaleIntent?: boolean | User$SaleIntentArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3683,6 +4066,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    did?: boolean
     emailVerified?: boolean
     image?: boolean
   }, ExtArgs["result"]["user"]>
@@ -3691,6 +4075,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    did?: boolean
     emailVerified?: boolean
     image?: boolean
   }, ExtArgs["result"]["user"]>
@@ -3699,15 +4084,20 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    did?: boolean
     emailVerified?: boolean
     image?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "did" | "emailVerified" | "image", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     Authenticator?: boolean | User$AuthenticatorArgs<ExtArgs>
+    Sale?: boolean | User$SaleArgs<ExtArgs>
+    reviewsAsUser?: boolean | User$reviewsAsUserArgs<ExtArgs>
+    reviewsAsBuyer?: boolean | User$reviewsAsBuyerArgs<ExtArgs>
+    SaleIntent?: boolean | User$SaleIntentArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3719,11 +4109,16 @@ export namespace Prisma {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       Authenticator: Prisma.$AuthenticatorPayload<ExtArgs>[]
+      Sale: Prisma.$SalePayload<ExtArgs>[]
+      reviewsAsUser: Prisma.$ReviewPayload<ExtArgs>[]
+      reviewsAsBuyer: Prisma.$ReviewPayload<ExtArgs>[]
+      SaleIntent: Prisma.$SaleIntentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string | null
       email: string | null
+      did: string | null
       emailVerified: Date | null
       image: string | null
     }, ExtArgs["result"]["user"]>
@@ -4123,6 +4518,10 @@ export namespace Prisma {
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Authenticator<T extends User$AuthenticatorArgs<ExtArgs> = {}>(args?: Subset<T, User$AuthenticatorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthenticatorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Sale<T extends User$SaleArgs<ExtArgs> = {}>(args?: Subset<T, User$SaleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reviewsAsUser<T extends User$reviewsAsUserArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewsAsUserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reviewsAsBuyer<T extends User$reviewsAsBuyerArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewsAsBuyerArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    SaleIntent<T extends User$SaleIntentArgs<ExtArgs> = {}>(args?: Subset<T, User$SaleIntentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4155,6 +4554,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
+    readonly did: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
   }
@@ -4614,6 +5014,102 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AuthenticatorScalarFieldEnum | AuthenticatorScalarFieldEnum[]
+  }
+
+  /**
+   * User.Sale
+   */
+  export type User$SaleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    where?: SaleWhereInput
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    cursor?: SaleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * User.reviewsAsUser
+   */
+  export type User$reviewsAsUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    where?: ReviewWhereInput
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    cursor?: ReviewWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * User.reviewsAsBuyer
+   */
+  export type User$reviewsAsBuyerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    where?: ReviewWhereInput
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    cursor?: ReviewWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * User.SaleIntent
+   */
+  export type User$SaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    where?: SaleIntentWhereInput
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    cursor?: SaleIntentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
   }
 
   /**
@@ -6736,6 +7232,3388 @@ export namespace Prisma {
 
 
   /**
+   * Model Sale
+   */
+
+  export type AggregateSale = {
+    _count: SaleCountAggregateOutputType | null
+    _min: SaleMinAggregateOutputType | null
+    _max: SaleMaxAggregateOutputType | null
+  }
+
+  export type SaleMinAggregateOutputType = {
+    id: string | null
+    sellerId: string | null
+    productName: string | null
+    createdAt: Date | null
+    photoUrl: string | null
+  }
+
+  export type SaleMaxAggregateOutputType = {
+    id: string | null
+    sellerId: string | null
+    productName: string | null
+    createdAt: Date | null
+    photoUrl: string | null
+  }
+
+  export type SaleCountAggregateOutputType = {
+    id: number
+    sellerId: number
+    productName: number
+    createdAt: number
+    photoUrl: number
+    _all: number
+  }
+
+
+  export type SaleMinAggregateInputType = {
+    id?: true
+    sellerId?: true
+    productName?: true
+    createdAt?: true
+    photoUrl?: true
+  }
+
+  export type SaleMaxAggregateInputType = {
+    id?: true
+    sellerId?: true
+    productName?: true
+    createdAt?: true
+    photoUrl?: true
+  }
+
+  export type SaleCountAggregateInputType = {
+    id?: true
+    sellerId?: true
+    productName?: true
+    createdAt?: true
+    photoUrl?: true
+    _all?: true
+  }
+
+  export type SaleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sale to aggregate.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sales
+    **/
+    _count?: true | SaleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SaleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SaleMaxAggregateInputType
+  }
+
+  export type GetSaleAggregateType<T extends SaleAggregateArgs> = {
+        [P in keyof T & keyof AggregateSale]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSale[P]>
+      : GetScalarType<T[P], AggregateSale[P]>
+  }
+
+
+
+
+  export type SaleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleWhereInput
+    orderBy?: SaleOrderByWithAggregationInput | SaleOrderByWithAggregationInput[]
+    by: SaleScalarFieldEnum[] | SaleScalarFieldEnum
+    having?: SaleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SaleCountAggregateInputType | true
+    _min?: SaleMinAggregateInputType
+    _max?: SaleMaxAggregateInputType
+  }
+
+  export type SaleGroupByOutputType = {
+    id: string
+    sellerId: string
+    productName: string
+    createdAt: Date
+    photoUrl: string | null
+    _count: SaleCountAggregateOutputType | null
+    _min: SaleMinAggregateOutputType | null
+    _max: SaleMaxAggregateOutputType | null
+  }
+
+  type GetSaleGroupByPayload<T extends SaleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SaleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SaleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SaleGroupByOutputType[P]>
+            : GetScalarType<T[P], SaleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SaleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sellerId?: boolean
+    productName?: boolean
+    createdAt?: boolean
+    photoUrl?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    SaleIntent?: boolean | Sale$SaleIntentArgs<ExtArgs>
+    _count?: boolean | SaleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sellerId?: boolean
+    productName?: boolean
+    createdAt?: boolean
+    photoUrl?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sellerId?: boolean
+    productName?: boolean
+    createdAt?: boolean
+    photoUrl?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale"]>
+
+  export type SaleSelectScalar = {
+    id?: boolean
+    sellerId?: boolean
+    productName?: boolean
+    createdAt?: boolean
+    photoUrl?: boolean
+  }
+
+  export type SaleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sellerId" | "productName" | "createdAt" | "photoUrl", ExtArgs["result"]["sale"]>
+  export type SaleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    SaleIntent?: boolean | Sale$SaleIntentArgs<ExtArgs>
+    _count?: boolean | SaleCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SaleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SaleIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $SalePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Sale"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      SaleIntent: Prisma.$SaleIntentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sellerId: string
+      productName: string
+      createdAt: Date
+      photoUrl: string | null
+    }, ExtArgs["result"]["sale"]>
+    composites: {}
+  }
+
+  type SaleGetPayload<S extends boolean | null | undefined | SaleDefaultArgs> = $Result.GetResult<Prisma.$SalePayload, S>
+
+  type SaleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SaleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SaleCountAggregateInputType | true
+    }
+
+  export interface SaleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Sale'], meta: { name: 'Sale' } }
+    /**
+     * Find zero or one Sale that matches the filter.
+     * @param {SaleFindUniqueArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SaleFindUniqueArgs>(args: SelectSubset<T, SaleFindUniqueArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Sale that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SaleFindUniqueOrThrowArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SaleFindUniqueOrThrowArgs>(args: SelectSubset<T, SaleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sale that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindFirstArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SaleFindFirstArgs>(args?: SelectSubset<T, SaleFindFirstArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sale that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindFirstOrThrowArgs} args - Arguments to find a Sale
+     * @example
+     * // Get one Sale
+     * const sale = await prisma.sale.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SaleFindFirstOrThrowArgs>(args?: SelectSubset<T, SaleFindFirstOrThrowArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sales that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sales
+     * const sales = await prisma.sale.findMany()
+     * 
+     * // Get first 10 Sales
+     * const sales = await prisma.sale.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const saleWithIdOnly = await prisma.sale.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SaleFindManyArgs>(args?: SelectSubset<T, SaleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Sale.
+     * @param {SaleCreateArgs} args - Arguments to create a Sale.
+     * @example
+     * // Create one Sale
+     * const Sale = await prisma.sale.create({
+     *   data: {
+     *     // ... data to create a Sale
+     *   }
+     * })
+     * 
+     */
+    create<T extends SaleCreateArgs>(args: SelectSubset<T, SaleCreateArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sales.
+     * @param {SaleCreateManyArgs} args - Arguments to create many Sales.
+     * @example
+     * // Create many Sales
+     * const sale = await prisma.sale.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SaleCreateManyArgs>(args?: SelectSubset<T, SaleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sales and returns the data saved in the database.
+     * @param {SaleCreateManyAndReturnArgs} args - Arguments to create many Sales.
+     * @example
+     * // Create many Sales
+     * const sale = await prisma.sale.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sales and only return the `id`
+     * const saleWithIdOnly = await prisma.sale.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SaleCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Sale.
+     * @param {SaleDeleteArgs} args - Arguments to delete one Sale.
+     * @example
+     * // Delete one Sale
+     * const Sale = await prisma.sale.delete({
+     *   where: {
+     *     // ... filter to delete one Sale
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SaleDeleteArgs>(args: SelectSubset<T, SaleDeleteArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Sale.
+     * @param {SaleUpdateArgs} args - Arguments to update one Sale.
+     * @example
+     * // Update one Sale
+     * const sale = await prisma.sale.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SaleUpdateArgs>(args: SelectSubset<T, SaleUpdateArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sales.
+     * @param {SaleDeleteManyArgs} args - Arguments to filter Sales to delete.
+     * @example
+     * // Delete a few Sales
+     * const { count } = await prisma.sale.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SaleDeleteManyArgs>(args?: SelectSubset<T, SaleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sales
+     * const sale = await prisma.sale.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SaleUpdateManyArgs>(args: SelectSubset<T, SaleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sales and returns the data updated in the database.
+     * @param {SaleUpdateManyAndReturnArgs} args - Arguments to update many Sales.
+     * @example
+     * // Update many Sales
+     * const sale = await prisma.sale.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sales and only return the `id`
+     * const saleWithIdOnly = await prisma.sale.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SaleUpdateManyAndReturnArgs>(args: SelectSubset<T, SaleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Sale.
+     * @param {SaleUpsertArgs} args - Arguments to update or create a Sale.
+     * @example
+     * // Update or create a Sale
+     * const sale = await prisma.sale.upsert({
+     *   create: {
+     *     // ... data to create a Sale
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Sale we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SaleUpsertArgs>(args: SelectSubset<T, SaleUpsertArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleCountArgs} args - Arguments to filter Sales to count.
+     * @example
+     * // Count the number of Sales
+     * const count = await prisma.sale.count({
+     *   where: {
+     *     // ... the filter for the Sales we want to count
+     *   }
+     * })
+    **/
+    count<T extends SaleCountArgs>(
+      args?: Subset<T, SaleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SaleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SaleAggregateArgs>(args: Subset<T, SaleAggregateArgs>): Prisma.PrismaPromise<GetSaleAggregateType<T>>
+
+    /**
+     * Group by Sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SaleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SaleGroupByArgs['orderBy'] }
+        : { orderBy?: SaleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SaleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Sale model
+   */
+  readonly fields: SaleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Sale.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SaleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    SaleIntent<T extends Sale$SaleIntentArgs<ExtArgs> = {}>(args?: Subset<T, Sale$SaleIntentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Sale model
+   */
+  interface SaleFieldRefs {
+    readonly id: FieldRef<"Sale", 'String'>
+    readonly sellerId: FieldRef<"Sale", 'String'>
+    readonly productName: FieldRef<"Sale", 'String'>
+    readonly createdAt: FieldRef<"Sale", 'DateTime'>
+    readonly photoUrl: FieldRef<"Sale", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Sale findUnique
+   */
+  export type SaleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale findUniqueOrThrow
+   */
+  export type SaleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale findFirst
+   */
+  export type SaleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sales.
+     */
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale findFirstOrThrow
+   */
+  export type SaleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sale to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sales.
+     */
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale findMany
+   */
+  export type SaleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter, which Sales to fetch.
+     */
+    where?: SaleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sales to fetch.
+     */
+    orderBy?: SaleOrderByWithRelationInput | SaleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sales.
+     */
+    cursor?: SaleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sales.
+     */
+    skip?: number
+    distinct?: SaleScalarFieldEnum | SaleScalarFieldEnum[]
+  }
+
+  /**
+   * Sale create
+   */
+  export type SaleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Sale.
+     */
+    data: XOR<SaleCreateInput, SaleUncheckedCreateInput>
+  }
+
+  /**
+   * Sale createMany
+   */
+  export type SaleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sales.
+     */
+    data: SaleCreateManyInput | SaleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Sale createManyAndReturn
+   */
+  export type SaleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sales.
+     */
+    data: SaleCreateManyInput | SaleCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sale update
+   */
+  export type SaleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Sale.
+     */
+    data: XOR<SaleUpdateInput, SaleUncheckedUpdateInput>
+    /**
+     * Choose, which Sale to update.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale updateMany
+   */
+  export type SaleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sales.
+     */
+    data: XOR<SaleUpdateManyMutationInput, SaleUncheckedUpdateManyInput>
+    /**
+     * Filter which Sales to update
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sale updateManyAndReturn
+   */
+  export type SaleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * The data used to update Sales.
+     */
+    data: XOR<SaleUpdateManyMutationInput, SaleUncheckedUpdateManyInput>
+    /**
+     * Filter which Sales to update
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sale upsert
+   */
+  export type SaleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Sale to update in case it exists.
+     */
+    where: SaleWhereUniqueInput
+    /**
+     * In case the Sale found by the `where` argument doesn't exist, create a new Sale with this data.
+     */
+    create: XOR<SaleCreateInput, SaleUncheckedCreateInput>
+    /**
+     * In case the Sale was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SaleUpdateInput, SaleUncheckedUpdateInput>
+  }
+
+  /**
+   * Sale delete
+   */
+  export type SaleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+    /**
+     * Filter which Sale to delete.
+     */
+    where: SaleWhereUniqueInput
+  }
+
+  /**
+   * Sale deleteMany
+   */
+  export type SaleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sales to delete
+     */
+    where?: SaleWhereInput
+    /**
+     * Limit how many Sales to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sale.SaleIntent
+   */
+  export type Sale$SaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    where?: SaleIntentWhereInput
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    cursor?: SaleIntentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
+  }
+
+  /**
+   * Sale without action
+   */
+  export type SaleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale
+     */
+    select?: SaleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sale
+     */
+    omit?: SaleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Review
+   */
+
+  export type AggregateReview = {
+    _count: ReviewCountAggregateOutputType | null
+    _avg: ReviewAvgAggregateOutputType | null
+    _sum: ReviewSumAggregateOutputType | null
+    _min: ReviewMinAggregateOutputType | null
+    _max: ReviewMaxAggregateOutputType | null
+  }
+
+  export type ReviewAvgAggregateOutputType = {
+    rating: number | null
+  }
+
+  export type ReviewSumAggregateOutputType = {
+    rating: number | null
+  }
+
+  export type ReviewMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    buyerId: string | null
+    productName: string | null
+    rating: number | null
+    comment: string | null
+    hash: string | null
+    photoUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type ReviewMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    buyerId: string | null
+    productName: string | null
+    rating: number | null
+    comment: string | null
+    hash: string | null
+    photoUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type ReviewCountAggregateOutputType = {
+    id: number
+    userId: number
+    buyerId: number
+    productName: number
+    rating: number
+    comment: number
+    hash: number
+    photoUrl: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ReviewAvgAggregateInputType = {
+    rating?: true
+  }
+
+  export type ReviewSumAggregateInputType = {
+    rating?: true
+  }
+
+  export type ReviewMinAggregateInputType = {
+    id?: true
+    userId?: true
+    buyerId?: true
+    productName?: true
+    rating?: true
+    comment?: true
+    hash?: true
+    photoUrl?: true
+    createdAt?: true
+  }
+
+  export type ReviewMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    buyerId?: true
+    productName?: true
+    rating?: true
+    comment?: true
+    hash?: true
+    photoUrl?: true
+    createdAt?: true
+  }
+
+  export type ReviewCountAggregateInputType = {
+    id?: true
+    userId?: true
+    buyerId?: true
+    productName?: true
+    rating?: true
+    comment?: true
+    hash?: true
+    photoUrl?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ReviewAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Review to aggregate.
+     */
+    where?: ReviewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReviewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Reviews
+    **/
+    _count?: true | ReviewCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReviewAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReviewSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReviewMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReviewMaxAggregateInputType
+  }
+
+  export type GetReviewAggregateType<T extends ReviewAggregateArgs> = {
+        [P in keyof T & keyof AggregateReview]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReview[P]>
+      : GetScalarType<T[P], AggregateReview[P]>
+  }
+
+
+
+
+  export type ReviewGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReviewWhereInput
+    orderBy?: ReviewOrderByWithAggregationInput | ReviewOrderByWithAggregationInput[]
+    by: ReviewScalarFieldEnum[] | ReviewScalarFieldEnum
+    having?: ReviewScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReviewCountAggregateInputType | true
+    _avg?: ReviewAvgAggregateInputType
+    _sum?: ReviewSumAggregateInputType
+    _min?: ReviewMinAggregateInputType
+    _max?: ReviewMaxAggregateInputType
+  }
+
+  export type ReviewGroupByOutputType = {
+    id: string
+    userId: string
+    buyerId: string
+    productName: string
+    rating: number
+    comment: string | null
+    hash: string | null
+    photoUrl: string | null
+    createdAt: Date
+    _count: ReviewCountAggregateOutputType | null
+    _avg: ReviewAvgAggregateOutputType | null
+    _sum: ReviewSumAggregateOutputType | null
+    _min: ReviewMinAggregateOutputType | null
+    _max: ReviewMaxAggregateOutputType | null
+  }
+
+  type GetReviewGroupByPayload<T extends ReviewGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReviewGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReviewGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReviewGroupByOutputType[P]>
+            : GetScalarType<T[P], ReviewGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReviewSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    buyerId?: boolean
+    productName?: boolean
+    rating?: boolean
+    comment?: boolean
+    hash?: boolean
+    photoUrl?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+    SaleIntent?: boolean | Review$SaleIntentArgs<ExtArgs>
+    _count?: boolean | ReviewCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["review"]>
+
+  export type ReviewSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    buyerId?: boolean
+    productName?: boolean
+    rating?: boolean
+    comment?: boolean
+    hash?: boolean
+    photoUrl?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["review"]>
+
+  export type ReviewSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    buyerId?: boolean
+    productName?: boolean
+    rating?: boolean
+    comment?: boolean
+    hash?: boolean
+    photoUrl?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["review"]>
+
+  export type ReviewSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    buyerId?: boolean
+    productName?: boolean
+    rating?: boolean
+    comment?: boolean
+    hash?: boolean
+    photoUrl?: boolean
+    createdAt?: boolean
+  }
+
+  export type ReviewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "buyerId" | "productName" | "rating" | "comment" | "hash" | "photoUrl" | "createdAt", ExtArgs["result"]["review"]>
+  export type ReviewInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+    SaleIntent?: boolean | Review$SaleIntentArgs<ExtArgs>
+    _count?: boolean | ReviewCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ReviewIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ReviewIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    buyer?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ReviewPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Review"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      buyer: Prisma.$UserPayload<ExtArgs>
+      SaleIntent: Prisma.$SaleIntentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      buyerId: string
+      productName: string
+      rating: number
+      comment: string | null
+      hash: string | null
+      photoUrl: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["review"]>
+    composites: {}
+  }
+
+  type ReviewGetPayload<S extends boolean | null | undefined | ReviewDefaultArgs> = $Result.GetResult<Prisma.$ReviewPayload, S>
+
+  type ReviewCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReviewFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReviewCountAggregateInputType | true
+    }
+
+  export interface ReviewDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Review'], meta: { name: 'Review' } }
+    /**
+     * Find zero or one Review that matches the filter.
+     * @param {ReviewFindUniqueArgs} args - Arguments to find a Review
+     * @example
+     * // Get one Review
+     * const review = await prisma.review.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReviewFindUniqueArgs>(args: SelectSubset<T, ReviewFindUniqueArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Review that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReviewFindUniqueOrThrowArgs} args - Arguments to find a Review
+     * @example
+     * // Get one Review
+     * const review = await prisma.review.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReviewFindUniqueOrThrowArgs>(args: SelectSubset<T, ReviewFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Review that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewFindFirstArgs} args - Arguments to find a Review
+     * @example
+     * // Get one Review
+     * const review = await prisma.review.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReviewFindFirstArgs>(args?: SelectSubset<T, ReviewFindFirstArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Review that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewFindFirstOrThrowArgs} args - Arguments to find a Review
+     * @example
+     * // Get one Review
+     * const review = await prisma.review.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReviewFindFirstOrThrowArgs>(args?: SelectSubset<T, ReviewFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Reviews that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Reviews
+     * const reviews = await prisma.review.findMany()
+     * 
+     * // Get first 10 Reviews
+     * const reviews = await prisma.review.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const reviewWithIdOnly = await prisma.review.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReviewFindManyArgs>(args?: SelectSubset<T, ReviewFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Review.
+     * @param {ReviewCreateArgs} args - Arguments to create a Review.
+     * @example
+     * // Create one Review
+     * const Review = await prisma.review.create({
+     *   data: {
+     *     // ... data to create a Review
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReviewCreateArgs>(args: SelectSubset<T, ReviewCreateArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Reviews.
+     * @param {ReviewCreateManyArgs} args - Arguments to create many Reviews.
+     * @example
+     * // Create many Reviews
+     * const review = await prisma.review.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReviewCreateManyArgs>(args?: SelectSubset<T, ReviewCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Reviews and returns the data saved in the database.
+     * @param {ReviewCreateManyAndReturnArgs} args - Arguments to create many Reviews.
+     * @example
+     * // Create many Reviews
+     * const review = await prisma.review.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Reviews and only return the `id`
+     * const reviewWithIdOnly = await prisma.review.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReviewCreateManyAndReturnArgs>(args?: SelectSubset<T, ReviewCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Review.
+     * @param {ReviewDeleteArgs} args - Arguments to delete one Review.
+     * @example
+     * // Delete one Review
+     * const Review = await prisma.review.delete({
+     *   where: {
+     *     // ... filter to delete one Review
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReviewDeleteArgs>(args: SelectSubset<T, ReviewDeleteArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Review.
+     * @param {ReviewUpdateArgs} args - Arguments to update one Review.
+     * @example
+     * // Update one Review
+     * const review = await prisma.review.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReviewUpdateArgs>(args: SelectSubset<T, ReviewUpdateArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Reviews.
+     * @param {ReviewDeleteManyArgs} args - Arguments to filter Reviews to delete.
+     * @example
+     * // Delete a few Reviews
+     * const { count } = await prisma.review.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReviewDeleteManyArgs>(args?: SelectSubset<T, ReviewDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Reviews
+     * const review = await prisma.review.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReviewUpdateManyArgs>(args: SelectSubset<T, ReviewUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reviews and returns the data updated in the database.
+     * @param {ReviewUpdateManyAndReturnArgs} args - Arguments to update many Reviews.
+     * @example
+     * // Update many Reviews
+     * const review = await prisma.review.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Reviews and only return the `id`
+     * const reviewWithIdOnly = await prisma.review.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ReviewUpdateManyAndReturnArgs>(args: SelectSubset<T, ReviewUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Review.
+     * @param {ReviewUpsertArgs} args - Arguments to update or create a Review.
+     * @example
+     * // Update or create a Review
+     * const review = await prisma.review.upsert({
+     *   create: {
+     *     // ... data to create a Review
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Review we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReviewUpsertArgs>(args: SelectSubset<T, ReviewUpsertArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewCountArgs} args - Arguments to filter Reviews to count.
+     * @example
+     * // Count the number of Reviews
+     * const count = await prisma.review.count({
+     *   where: {
+     *     // ... the filter for the Reviews we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReviewCountArgs>(
+      args?: Subset<T, ReviewCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReviewCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Review.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReviewAggregateArgs>(args: Subset<T, ReviewAggregateArgs>): Prisma.PrismaPromise<GetReviewAggregateType<T>>
+
+    /**
+     * Group by Review.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReviewGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReviewGroupByArgs['orderBy'] }
+        : { orderBy?: ReviewGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReviewGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReviewGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Review model
+   */
+  readonly fields: ReviewFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Review.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReviewClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    buyer<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    SaleIntent<T extends Review$SaleIntentArgs<ExtArgs> = {}>(args?: Subset<T, Review$SaleIntentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Review model
+   */
+  interface ReviewFieldRefs {
+    readonly id: FieldRef<"Review", 'String'>
+    readonly userId: FieldRef<"Review", 'String'>
+    readonly buyerId: FieldRef<"Review", 'String'>
+    readonly productName: FieldRef<"Review", 'String'>
+    readonly rating: FieldRef<"Review", 'Int'>
+    readonly comment: FieldRef<"Review", 'String'>
+    readonly hash: FieldRef<"Review", 'String'>
+    readonly photoUrl: FieldRef<"Review", 'String'>
+    readonly createdAt: FieldRef<"Review", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Review findUnique
+   */
+  export type ReviewFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter, which Review to fetch.
+     */
+    where: ReviewWhereUniqueInput
+  }
+
+  /**
+   * Review findUniqueOrThrow
+   */
+  export type ReviewFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter, which Review to fetch.
+     */
+    where: ReviewWhereUniqueInput
+  }
+
+  /**
+   * Review findFirst
+   */
+  export type ReviewFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter, which Review to fetch.
+     */
+    where?: ReviewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reviews.
+     */
+    cursor?: ReviewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reviews.
+     */
+    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * Review findFirstOrThrow
+   */
+  export type ReviewFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter, which Review to fetch.
+     */
+    where?: ReviewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reviews.
+     */
+    cursor?: ReviewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reviews.
+     */
+    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * Review findMany
+   */
+  export type ReviewFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where?: ReviewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Reviews.
+     */
+    cursor?: ReviewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * Review create
+   */
+  export type ReviewCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Review.
+     */
+    data: XOR<ReviewCreateInput, ReviewUncheckedCreateInput>
+  }
+
+  /**
+   * Review createMany
+   */
+  export type ReviewCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Reviews.
+     */
+    data: ReviewCreateManyInput | ReviewCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Review createManyAndReturn
+   */
+  export type ReviewCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * The data used to create many Reviews.
+     */
+    data: ReviewCreateManyInput | ReviewCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Review update
+   */
+  export type ReviewUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Review.
+     */
+    data: XOR<ReviewUpdateInput, ReviewUncheckedUpdateInput>
+    /**
+     * Choose, which Review to update.
+     */
+    where: ReviewWhereUniqueInput
+  }
+
+  /**
+   * Review updateMany
+   */
+  export type ReviewUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Reviews.
+     */
+    data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyInput>
+    /**
+     * Filter which Reviews to update
+     */
+    where?: ReviewWhereInput
+    /**
+     * Limit how many Reviews to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Review updateManyAndReturn
+   */
+  export type ReviewUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * The data used to update Reviews.
+     */
+    data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyInput>
+    /**
+     * Filter which Reviews to update
+     */
+    where?: ReviewWhereInput
+    /**
+     * Limit how many Reviews to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Review upsert
+   */
+  export type ReviewUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Review to update in case it exists.
+     */
+    where: ReviewWhereUniqueInput
+    /**
+     * In case the Review found by the `where` argument doesn't exist, create a new Review with this data.
+     */
+    create: XOR<ReviewCreateInput, ReviewUncheckedCreateInput>
+    /**
+     * In case the Review was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReviewUpdateInput, ReviewUncheckedUpdateInput>
+  }
+
+  /**
+   * Review delete
+   */
+  export type ReviewDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    /**
+     * Filter which Review to delete.
+     */
+    where: ReviewWhereUniqueInput
+  }
+
+  /**
+   * Review deleteMany
+   */
+  export type ReviewDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reviews to delete
+     */
+    where?: ReviewWhereInput
+    /**
+     * Limit how many Reviews to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Review.SaleIntent
+   */
+  export type Review$SaleIntentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    where?: SaleIntentWhereInput
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    cursor?: SaleIntentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
+  }
+
+  /**
+   * Review without action
+   */
+  export type ReviewDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SaleIntent
+   */
+
+  export type AggregateSaleIntent = {
+    _count: SaleIntentCountAggregateOutputType | null
+    _min: SaleIntentMinAggregateOutputType | null
+    _max: SaleIntentMaxAggregateOutputType | null
+  }
+
+  export type SaleIntentMinAggregateOutputType = {
+    id: string | null
+    saleId: string | null
+    userId: string | null
+    reviewId: string | null
+    createdAt: Date | null
+  }
+
+  export type SaleIntentMaxAggregateOutputType = {
+    id: string | null
+    saleId: string | null
+    userId: string | null
+    reviewId: string | null
+    createdAt: Date | null
+  }
+
+  export type SaleIntentCountAggregateOutputType = {
+    id: number
+    saleId: number
+    userId: number
+    reviewId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type SaleIntentMinAggregateInputType = {
+    id?: true
+    saleId?: true
+    userId?: true
+    reviewId?: true
+    createdAt?: true
+  }
+
+  export type SaleIntentMaxAggregateInputType = {
+    id?: true
+    saleId?: true
+    userId?: true
+    reviewId?: true
+    createdAt?: true
+  }
+
+  export type SaleIntentCountAggregateInputType = {
+    id?: true
+    saleId?: true
+    userId?: true
+    reviewId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type SaleIntentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SaleIntent to aggregate.
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleIntents to fetch.
+     */
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SaleIntentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleIntents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleIntents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SaleIntents
+    **/
+    _count?: true | SaleIntentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SaleIntentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SaleIntentMaxAggregateInputType
+  }
+
+  export type GetSaleIntentAggregateType<T extends SaleIntentAggregateArgs> = {
+        [P in keyof T & keyof AggregateSaleIntent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSaleIntent[P]>
+      : GetScalarType<T[P], AggregateSaleIntent[P]>
+  }
+
+
+
+
+  export type SaleIntentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaleIntentWhereInput
+    orderBy?: SaleIntentOrderByWithAggregationInput | SaleIntentOrderByWithAggregationInput[]
+    by: SaleIntentScalarFieldEnum[] | SaleIntentScalarFieldEnum
+    having?: SaleIntentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SaleIntentCountAggregateInputType | true
+    _min?: SaleIntentMinAggregateInputType
+    _max?: SaleIntentMaxAggregateInputType
+  }
+
+  export type SaleIntentGroupByOutputType = {
+    id: string
+    saleId: string
+    userId: string | null
+    reviewId: string | null
+    createdAt: Date
+    _count: SaleIntentCountAggregateOutputType | null
+    _min: SaleIntentMinAggregateOutputType | null
+    _max: SaleIntentMaxAggregateOutputType | null
+  }
+
+  type GetSaleIntentGroupByPayload<T extends SaleIntentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SaleIntentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SaleIntentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SaleIntentGroupByOutputType[P]>
+            : GetScalarType<T[P], SaleIntentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SaleIntentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    saleId?: boolean
+    userId?: boolean
+    reviewId?: boolean
+    createdAt?: boolean
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }, ExtArgs["result"]["saleIntent"]>
+
+  export type SaleIntentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    saleId?: boolean
+    userId?: boolean
+    reviewId?: boolean
+    createdAt?: boolean
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }, ExtArgs["result"]["saleIntent"]>
+
+  export type SaleIntentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    saleId?: boolean
+    userId?: boolean
+    reviewId?: boolean
+    createdAt?: boolean
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }, ExtArgs["result"]["saleIntent"]>
+
+  export type SaleIntentSelectScalar = {
+    id?: boolean
+    saleId?: boolean
+    userId?: boolean
+    reviewId?: boolean
+    createdAt?: boolean
+  }
+
+  export type SaleIntentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "saleId" | "userId" | "reviewId" | "createdAt", ExtArgs["result"]["saleIntent"]>
+  export type SaleIntentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }
+  export type SaleIntentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }
+  export type SaleIntentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale?: boolean | SaleDefaultArgs<ExtArgs>
+    user?: boolean | SaleIntent$userArgs<ExtArgs>
+    review?: boolean | SaleIntent$reviewArgs<ExtArgs>
+  }
+
+  export type $SaleIntentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SaleIntent"
+    objects: {
+      sale: Prisma.$SalePayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
+      review: Prisma.$ReviewPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      saleId: string
+      userId: string | null
+      reviewId: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["saleIntent"]>
+    composites: {}
+  }
+
+  type SaleIntentGetPayload<S extends boolean | null | undefined | SaleIntentDefaultArgs> = $Result.GetResult<Prisma.$SaleIntentPayload, S>
+
+  type SaleIntentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SaleIntentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SaleIntentCountAggregateInputType | true
+    }
+
+  export interface SaleIntentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SaleIntent'], meta: { name: 'SaleIntent' } }
+    /**
+     * Find zero or one SaleIntent that matches the filter.
+     * @param {SaleIntentFindUniqueArgs} args - Arguments to find a SaleIntent
+     * @example
+     * // Get one SaleIntent
+     * const saleIntent = await prisma.saleIntent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SaleIntentFindUniqueArgs>(args: SelectSubset<T, SaleIntentFindUniqueArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SaleIntent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SaleIntentFindUniqueOrThrowArgs} args - Arguments to find a SaleIntent
+     * @example
+     * // Get one SaleIntent
+     * const saleIntent = await prisma.saleIntent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SaleIntentFindUniqueOrThrowArgs>(args: SelectSubset<T, SaleIntentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SaleIntent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentFindFirstArgs} args - Arguments to find a SaleIntent
+     * @example
+     * // Get one SaleIntent
+     * const saleIntent = await prisma.saleIntent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SaleIntentFindFirstArgs>(args?: SelectSubset<T, SaleIntentFindFirstArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SaleIntent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentFindFirstOrThrowArgs} args - Arguments to find a SaleIntent
+     * @example
+     * // Get one SaleIntent
+     * const saleIntent = await prisma.saleIntent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SaleIntentFindFirstOrThrowArgs>(args?: SelectSubset<T, SaleIntentFindFirstOrThrowArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SaleIntents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SaleIntents
+     * const saleIntents = await prisma.saleIntent.findMany()
+     * 
+     * // Get first 10 SaleIntents
+     * const saleIntents = await prisma.saleIntent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const saleIntentWithIdOnly = await prisma.saleIntent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SaleIntentFindManyArgs>(args?: SelectSubset<T, SaleIntentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SaleIntent.
+     * @param {SaleIntentCreateArgs} args - Arguments to create a SaleIntent.
+     * @example
+     * // Create one SaleIntent
+     * const SaleIntent = await prisma.saleIntent.create({
+     *   data: {
+     *     // ... data to create a SaleIntent
+     *   }
+     * })
+     * 
+     */
+    create<T extends SaleIntentCreateArgs>(args: SelectSubset<T, SaleIntentCreateArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SaleIntents.
+     * @param {SaleIntentCreateManyArgs} args - Arguments to create many SaleIntents.
+     * @example
+     * // Create many SaleIntents
+     * const saleIntent = await prisma.saleIntent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SaleIntentCreateManyArgs>(args?: SelectSubset<T, SaleIntentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SaleIntents and returns the data saved in the database.
+     * @param {SaleIntentCreateManyAndReturnArgs} args - Arguments to create many SaleIntents.
+     * @example
+     * // Create many SaleIntents
+     * const saleIntent = await prisma.saleIntent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SaleIntents and only return the `id`
+     * const saleIntentWithIdOnly = await prisma.saleIntent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SaleIntentCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleIntentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SaleIntent.
+     * @param {SaleIntentDeleteArgs} args - Arguments to delete one SaleIntent.
+     * @example
+     * // Delete one SaleIntent
+     * const SaleIntent = await prisma.saleIntent.delete({
+     *   where: {
+     *     // ... filter to delete one SaleIntent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SaleIntentDeleteArgs>(args: SelectSubset<T, SaleIntentDeleteArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SaleIntent.
+     * @param {SaleIntentUpdateArgs} args - Arguments to update one SaleIntent.
+     * @example
+     * // Update one SaleIntent
+     * const saleIntent = await prisma.saleIntent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SaleIntentUpdateArgs>(args: SelectSubset<T, SaleIntentUpdateArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SaleIntents.
+     * @param {SaleIntentDeleteManyArgs} args - Arguments to filter SaleIntents to delete.
+     * @example
+     * // Delete a few SaleIntents
+     * const { count } = await prisma.saleIntent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SaleIntentDeleteManyArgs>(args?: SelectSubset<T, SaleIntentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SaleIntents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SaleIntents
+     * const saleIntent = await prisma.saleIntent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SaleIntentUpdateManyArgs>(args: SelectSubset<T, SaleIntentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SaleIntents and returns the data updated in the database.
+     * @param {SaleIntentUpdateManyAndReturnArgs} args - Arguments to update many SaleIntents.
+     * @example
+     * // Update many SaleIntents
+     * const saleIntent = await prisma.saleIntent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SaleIntents and only return the `id`
+     * const saleIntentWithIdOnly = await prisma.saleIntent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SaleIntentUpdateManyAndReturnArgs>(args: SelectSubset<T, SaleIntentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SaleIntent.
+     * @param {SaleIntentUpsertArgs} args - Arguments to update or create a SaleIntent.
+     * @example
+     * // Update or create a SaleIntent
+     * const saleIntent = await prisma.saleIntent.upsert({
+     *   create: {
+     *     // ... data to create a SaleIntent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SaleIntent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SaleIntentUpsertArgs>(args: SelectSubset<T, SaleIntentUpsertArgs<ExtArgs>>): Prisma__SaleIntentClient<$Result.GetResult<Prisma.$SaleIntentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SaleIntents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentCountArgs} args - Arguments to filter SaleIntents to count.
+     * @example
+     * // Count the number of SaleIntents
+     * const count = await prisma.saleIntent.count({
+     *   where: {
+     *     // ... the filter for the SaleIntents we want to count
+     *   }
+     * })
+    **/
+    count<T extends SaleIntentCountArgs>(
+      args?: Subset<T, SaleIntentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SaleIntentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SaleIntent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SaleIntentAggregateArgs>(args: Subset<T, SaleIntentAggregateArgs>): Prisma.PrismaPromise<GetSaleIntentAggregateType<T>>
+
+    /**
+     * Group by SaleIntent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaleIntentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SaleIntentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SaleIntentGroupByArgs['orderBy'] }
+        : { orderBy?: SaleIntentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SaleIntentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaleIntentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SaleIntent model
+   */
+  readonly fields: SaleIntentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SaleIntent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SaleIntentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale<T extends SaleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SaleDefaultArgs<ExtArgs>>): Prisma__SaleClient<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends SaleIntent$userArgs<ExtArgs> = {}>(args?: Subset<T, SaleIntent$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    review<T extends SaleIntent$reviewArgs<ExtArgs> = {}>(args?: Subset<T, SaleIntent$reviewArgs<ExtArgs>>): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SaleIntent model
+   */
+  interface SaleIntentFieldRefs {
+    readonly id: FieldRef<"SaleIntent", 'String'>
+    readonly saleId: FieldRef<"SaleIntent", 'String'>
+    readonly userId: FieldRef<"SaleIntent", 'String'>
+    readonly reviewId: FieldRef<"SaleIntent", 'String'>
+    readonly createdAt: FieldRef<"SaleIntent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SaleIntent findUnique
+   */
+  export type SaleIntentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleIntent to fetch.
+     */
+    where: SaleIntentWhereUniqueInput
+  }
+
+  /**
+   * SaleIntent findUniqueOrThrow
+   */
+  export type SaleIntentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleIntent to fetch.
+     */
+    where: SaleIntentWhereUniqueInput
+  }
+
+  /**
+   * SaleIntent findFirst
+   */
+  export type SaleIntentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleIntent to fetch.
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleIntents to fetch.
+     */
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SaleIntents.
+     */
+    cursor?: SaleIntentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleIntents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleIntents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SaleIntents.
+     */
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
+  }
+
+  /**
+   * SaleIntent findFirstOrThrow
+   */
+  export type SaleIntentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleIntent to fetch.
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleIntents to fetch.
+     */
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SaleIntents.
+     */
+    cursor?: SaleIntentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleIntents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleIntents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SaleIntents.
+     */
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
+  }
+
+  /**
+   * SaleIntent findMany
+   */
+  export type SaleIntentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter, which SaleIntents to fetch.
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SaleIntents to fetch.
+     */
+    orderBy?: SaleIntentOrderByWithRelationInput | SaleIntentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SaleIntents.
+     */
+    cursor?: SaleIntentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SaleIntents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SaleIntents.
+     */
+    skip?: number
+    distinct?: SaleIntentScalarFieldEnum | SaleIntentScalarFieldEnum[]
+  }
+
+  /**
+   * SaleIntent create
+   */
+  export type SaleIntentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SaleIntent.
+     */
+    data: XOR<SaleIntentCreateInput, SaleIntentUncheckedCreateInput>
+  }
+
+  /**
+   * SaleIntent createMany
+   */
+  export type SaleIntentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SaleIntents.
+     */
+    data: SaleIntentCreateManyInput | SaleIntentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SaleIntent createManyAndReturn
+   */
+  export type SaleIntentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * The data used to create many SaleIntents.
+     */
+    data: SaleIntentCreateManyInput | SaleIntentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SaleIntent update
+   */
+  export type SaleIntentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SaleIntent.
+     */
+    data: XOR<SaleIntentUpdateInput, SaleIntentUncheckedUpdateInput>
+    /**
+     * Choose, which SaleIntent to update.
+     */
+    where: SaleIntentWhereUniqueInput
+  }
+
+  /**
+   * SaleIntent updateMany
+   */
+  export type SaleIntentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SaleIntents.
+     */
+    data: XOR<SaleIntentUpdateManyMutationInput, SaleIntentUncheckedUpdateManyInput>
+    /**
+     * Filter which SaleIntents to update
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * Limit how many SaleIntents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SaleIntent updateManyAndReturn
+   */
+  export type SaleIntentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * The data used to update SaleIntents.
+     */
+    data: XOR<SaleIntentUpdateManyMutationInput, SaleIntentUncheckedUpdateManyInput>
+    /**
+     * Filter which SaleIntents to update
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * Limit how many SaleIntents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SaleIntent upsert
+   */
+  export type SaleIntentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SaleIntent to update in case it exists.
+     */
+    where: SaleIntentWhereUniqueInput
+    /**
+     * In case the SaleIntent found by the `where` argument doesn't exist, create a new SaleIntent with this data.
+     */
+    create: XOR<SaleIntentCreateInput, SaleIntentUncheckedCreateInput>
+    /**
+     * In case the SaleIntent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SaleIntentUpdateInput, SaleIntentUncheckedUpdateInput>
+  }
+
+  /**
+   * SaleIntent delete
+   */
+  export type SaleIntentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+    /**
+     * Filter which SaleIntent to delete.
+     */
+    where: SaleIntentWhereUniqueInput
+  }
+
+  /**
+   * SaleIntent deleteMany
+   */
+  export type SaleIntentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SaleIntents to delete
+     */
+    where?: SaleIntentWhereInput
+    /**
+     * Limit how many SaleIntents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SaleIntent.user
+   */
+  export type SaleIntent$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * SaleIntent.review
+   */
+  export type SaleIntent$reviewArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Review
+     */
+    select?: ReviewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Review
+     */
+    omit?: ReviewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReviewInclude<ExtArgs> | null
+    where?: ReviewWhereInput
+  }
+
+  /**
+   * SaleIntent without action
+   */
+  export type SaleIntentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SaleIntent
+     */
+    select?: SaleIntentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SaleIntent
+     */
+    omit?: SaleIntentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaleIntentInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6781,6 +10659,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     email: 'email',
+    did: 'did',
     emailVerified: 'emailVerified',
     image: 'image'
   };
@@ -6809,6 +10688,43 @@ export namespace Prisma {
   };
 
   export type AuthenticatorScalarFieldEnum = (typeof AuthenticatorScalarFieldEnum)[keyof typeof AuthenticatorScalarFieldEnum]
+
+
+  export const SaleScalarFieldEnum: {
+    id: 'id',
+    sellerId: 'sellerId',
+    productName: 'productName',
+    createdAt: 'createdAt',
+    photoUrl: 'photoUrl'
+  };
+
+  export type SaleScalarFieldEnum = (typeof SaleScalarFieldEnum)[keyof typeof SaleScalarFieldEnum]
+
+
+  export const ReviewScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    buyerId: 'buyerId',
+    productName: 'productName',
+    rating: 'rating',
+    comment: 'comment',
+    hash: 'hash',
+    photoUrl: 'photoUrl',
+    createdAt: 'createdAt'
+  };
+
+  export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+  export const SaleIntentScalarFieldEnum: {
+    id: 'id',
+    saleId: 'saleId',
+    userId: 'userId',
+    reviewId: 'reviewId',
+    createdAt: 'createdAt'
+  };
+
+  export type SaleIntentScalarFieldEnum = (typeof SaleIntentScalarFieldEnum)[keyof typeof SaleIntentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7056,22 +10972,32 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     email?: StringNullableFilter<"User"> | string | null
+    did?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     Authenticator?: AuthenticatorListRelationFilter
+    Sale?: SaleListRelationFilter
+    reviewsAsUser?: ReviewListRelationFilter
+    reviewsAsBuyer?: ReviewListRelationFilter
+    SaleIntent?: SaleIntentListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
+    did?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     Authenticator?: AuthenticatorOrderByRelationAggregateInput
+    Sale?: SaleOrderByRelationAggregateInput
+    reviewsAsUser?: ReviewOrderByRelationAggregateInput
+    reviewsAsBuyer?: ReviewOrderByRelationAggregateInput
+    SaleIntent?: SaleIntentOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7081,17 +11007,23 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringNullableFilter<"User"> | string | null
+    did?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     Authenticator?: AuthenticatorListRelationFilter
+    Sale?: SaleListRelationFilter
+    reviewsAsUser?: ReviewListRelationFilter
+    reviewsAsBuyer?: ReviewListRelationFilter
+    SaleIntent?: SaleIntentListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
+    did?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -7106,6 +11038,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringNullableWithAggregatesFilter<"User"> | string | null
+    did?: StringNullableWithAggregatesFilter<"User"> | string | null
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
@@ -7224,6 +11157,208 @@ export namespace Prisma {
     credentialDeviceType?: StringWithAggregatesFilter<"Authenticator"> | string
     credentialBackedUp?: BoolWithAggregatesFilter<"Authenticator"> | boolean
     transports?: StringNullableWithAggregatesFilter<"Authenticator"> | string | null
+  }
+
+  export type SaleWhereInput = {
+    AND?: SaleWhereInput | SaleWhereInput[]
+    OR?: SaleWhereInput[]
+    NOT?: SaleWhereInput | SaleWhereInput[]
+    id?: StringFilter<"Sale"> | string
+    sellerId?: StringFilter<"Sale"> | string
+    productName?: StringFilter<"Sale"> | string
+    createdAt?: DateTimeFilter<"Sale"> | Date | string
+    photoUrl?: StringNullableFilter<"Sale"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    SaleIntent?: SaleIntentListRelationFilter
+  }
+
+  export type SaleOrderByWithRelationInput = {
+    id?: SortOrder
+    sellerId?: SortOrder
+    productName?: SortOrder
+    createdAt?: SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    SaleIntent?: SaleIntentOrderByRelationAggregateInput
+  }
+
+  export type SaleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SaleWhereInput | SaleWhereInput[]
+    OR?: SaleWhereInput[]
+    NOT?: SaleWhereInput | SaleWhereInput[]
+    sellerId?: StringFilter<"Sale"> | string
+    productName?: StringFilter<"Sale"> | string
+    createdAt?: DateTimeFilter<"Sale"> | Date | string
+    photoUrl?: StringNullableFilter<"Sale"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    SaleIntent?: SaleIntentListRelationFilter
+  }, "id">
+
+  export type SaleOrderByWithAggregationInput = {
+    id?: SortOrder
+    sellerId?: SortOrder
+    productName?: SortOrder
+    createdAt?: SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    _count?: SaleCountOrderByAggregateInput
+    _max?: SaleMaxOrderByAggregateInput
+    _min?: SaleMinOrderByAggregateInput
+  }
+
+  export type SaleScalarWhereWithAggregatesInput = {
+    AND?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
+    OR?: SaleScalarWhereWithAggregatesInput[]
+    NOT?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Sale"> | string
+    sellerId?: StringWithAggregatesFilter<"Sale"> | string
+    productName?: StringWithAggregatesFilter<"Sale"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Sale"> | Date | string
+    photoUrl?: StringNullableWithAggregatesFilter<"Sale"> | string | null
+  }
+
+  export type ReviewWhereInput = {
+    AND?: ReviewWhereInput | ReviewWhereInput[]
+    OR?: ReviewWhereInput[]
+    NOT?: ReviewWhereInput | ReviewWhereInput[]
+    id?: StringFilter<"Review"> | string
+    userId?: StringFilter<"Review"> | string
+    buyerId?: StringFilter<"Review"> | string
+    productName?: StringFilter<"Review"> | string
+    rating?: IntFilter<"Review"> | number
+    comment?: StringNullableFilter<"Review"> | string | null
+    hash?: StringNullableFilter<"Review"> | string | null
+    photoUrl?: StringNullableFilter<"Review"> | string | null
+    createdAt?: DateTimeFilter<"Review"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    SaleIntent?: SaleIntentListRelationFilter
+  }
+
+  export type ReviewOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    buyerId?: SortOrder
+    productName?: SortOrder
+    rating?: SortOrder
+    comment?: SortOrderInput | SortOrder
+    hash?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    buyer?: UserOrderByWithRelationInput
+    SaleIntent?: SaleIntentOrderByRelationAggregateInput
+  }
+
+  export type ReviewWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ReviewWhereInput | ReviewWhereInput[]
+    OR?: ReviewWhereInput[]
+    NOT?: ReviewWhereInput | ReviewWhereInput[]
+    userId?: StringFilter<"Review"> | string
+    buyerId?: StringFilter<"Review"> | string
+    productName?: StringFilter<"Review"> | string
+    rating?: IntFilter<"Review"> | number
+    comment?: StringNullableFilter<"Review"> | string | null
+    hash?: StringNullableFilter<"Review"> | string | null
+    photoUrl?: StringNullableFilter<"Review"> | string | null
+    createdAt?: DateTimeFilter<"Review"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    SaleIntent?: SaleIntentListRelationFilter
+  }, "id">
+
+  export type ReviewOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    buyerId?: SortOrder
+    productName?: SortOrder
+    rating?: SortOrder
+    comment?: SortOrderInput | SortOrder
+    hash?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: ReviewCountOrderByAggregateInput
+    _avg?: ReviewAvgOrderByAggregateInput
+    _max?: ReviewMaxOrderByAggregateInput
+    _min?: ReviewMinOrderByAggregateInput
+    _sum?: ReviewSumOrderByAggregateInput
+  }
+
+  export type ReviewScalarWhereWithAggregatesInput = {
+    AND?: ReviewScalarWhereWithAggregatesInput | ReviewScalarWhereWithAggregatesInput[]
+    OR?: ReviewScalarWhereWithAggregatesInput[]
+    NOT?: ReviewScalarWhereWithAggregatesInput | ReviewScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Review"> | string
+    userId?: StringWithAggregatesFilter<"Review"> | string
+    buyerId?: StringWithAggregatesFilter<"Review"> | string
+    productName?: StringWithAggregatesFilter<"Review"> | string
+    rating?: IntWithAggregatesFilter<"Review"> | number
+    comment?: StringNullableWithAggregatesFilter<"Review"> | string | null
+    hash?: StringNullableWithAggregatesFilter<"Review"> | string | null
+    photoUrl?: StringNullableWithAggregatesFilter<"Review"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Review"> | Date | string
+  }
+
+  export type SaleIntentWhereInput = {
+    AND?: SaleIntentWhereInput | SaleIntentWhereInput[]
+    OR?: SaleIntentWhereInput[]
+    NOT?: SaleIntentWhereInput | SaleIntentWhereInput[]
+    id?: StringFilter<"SaleIntent"> | string
+    saleId?: StringFilter<"SaleIntent"> | string
+    userId?: StringNullableFilter<"SaleIntent"> | string | null
+    reviewId?: StringNullableFilter<"SaleIntent"> | string | null
+    createdAt?: DateTimeFilter<"SaleIntent"> | Date | string
+    sale?: XOR<SaleScalarRelationFilter, SaleWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    review?: XOR<ReviewNullableScalarRelationFilter, ReviewWhereInput> | null
+  }
+
+  export type SaleIntentOrderByWithRelationInput = {
+    id?: SortOrder
+    saleId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    reviewId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    sale?: SaleOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    review?: ReviewOrderByWithRelationInput
+  }
+
+  export type SaleIntentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SaleIntentWhereInput | SaleIntentWhereInput[]
+    OR?: SaleIntentWhereInput[]
+    NOT?: SaleIntentWhereInput | SaleIntentWhereInput[]
+    saleId?: StringFilter<"SaleIntent"> | string
+    userId?: StringNullableFilter<"SaleIntent"> | string | null
+    reviewId?: StringNullableFilter<"SaleIntent"> | string | null
+    createdAt?: DateTimeFilter<"SaleIntent"> | Date | string
+    sale?: XOR<SaleScalarRelationFilter, SaleWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    review?: XOR<ReviewNullableScalarRelationFilter, ReviewWhereInput> | null
+  }, "id">
+
+  export type SaleIntentOrderByWithAggregationInput = {
+    id?: SortOrder
+    saleId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    reviewId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: SaleIntentCountOrderByAggregateInput
+    _max?: SaleIntentMaxOrderByAggregateInput
+    _min?: SaleIntentMinOrderByAggregateInput
+  }
+
+  export type SaleIntentScalarWhereWithAggregatesInput = {
+    AND?: SaleIntentScalarWhereWithAggregatesInput | SaleIntentScalarWhereWithAggregatesInput[]
+    OR?: SaleIntentScalarWhereWithAggregatesInput[]
+    NOT?: SaleIntentScalarWhereWithAggregatesInput | SaleIntentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SaleIntent"> | string
+    saleId?: StringWithAggregatesFilter<"SaleIntent"> | string
+    userId?: StringNullableWithAggregatesFilter<"SaleIntent"> | string | null
+    reviewId?: StringNullableWithAggregatesFilter<"SaleIntent"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SaleIntent"> | Date | string
   }
 
   export type AccountCreateInput = {
@@ -7382,50 +11517,71 @@ export namespace Prisma {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
   }
@@ -7434,6 +11590,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -7442,6 +11599,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -7562,6 +11720,204 @@ export namespace Prisma {
     credentialDeviceType?: StringFieldUpdateOperationsInput | string
     credentialBackedUp?: BoolFieldUpdateOperationsInput | boolean
     transports?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SaleCreateInput = {
+    id?: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+    user: UserCreateNestedOneWithoutSaleInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutSaleInput
+  }
+
+  export type SaleUncheckedCreateInput = {
+    id?: string
+    sellerId: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutSaleInput
+  }
+
+  export type SaleUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutSaleNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutSaleNestedInput
+  }
+
+  export type SaleUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sellerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutSaleNestedInput
+  }
+
+  export type SaleCreateManyInput = {
+    id?: string
+    sellerId: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+  }
+
+  export type SaleUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SaleUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sellerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReviewCreateInput = {
+    id?: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutReviewsAsUserInput
+    buyer: UserCreateNestedOneWithoutReviewsAsBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewUncheckedCreateInput = {
+    id?: string
+    userId: string
+    buyerId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutReviewsAsUserNestedInput
+    buyer?: UserUpdateOneRequiredWithoutReviewsAsBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewCreateManyInput = {
+    id?: string
+    userId: string
+    buyerId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ReviewUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReviewUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    sale: SaleCreateNestedOneWithoutSaleIntentInput
+    user?: UserCreateNestedOneWithoutSaleIntentInput
+    review?: ReviewCreateNestedOneWithoutSaleIntentInput
+  }
+
+  export type SaleIntentUncheckedCreateInput = {
+    id?: string
+    saleId: string
+    userId?: string | null
+    reviewId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale?: SaleUpdateOneRequiredWithoutSaleIntentNestedInput
+    user?: UserUpdateOneWithoutSaleIntentNestedInput
+    review?: ReviewUpdateOneWithoutSaleIntentNestedInput
+  }
+
+  export type SaleIntentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentCreateManyInput = {
+    id?: string
+    saleId: string
+    userId?: string | null
+    reviewId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -7800,6 +12156,24 @@ export namespace Prisma {
     none?: AuthenticatorWhereInput
   }
 
+  export type SaleListRelationFilter = {
+    every?: SaleWhereInput
+    some?: SaleWhereInput
+    none?: SaleWhereInput
+  }
+
+  export type ReviewListRelationFilter = {
+    every?: ReviewWhereInput
+    some?: ReviewWhereInput
+    none?: ReviewWhereInput
+  }
+
+  export type SaleIntentListRelationFilter = {
+    every?: SaleIntentWhereInput
+    some?: SaleIntentWhereInput
+    none?: SaleIntentWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -7812,10 +12186,23 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type SaleOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ReviewOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SaleIntentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    did?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
   }
@@ -7824,6 +12211,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    did?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
   }
@@ -7832,6 +12220,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    did?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
   }
@@ -7959,6 +12348,113 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type SaleCountOrderByAggregateInput = {
+    id?: SortOrder
+    sellerId?: SortOrder
+    productName?: SortOrder
+    createdAt?: SortOrder
+    photoUrl?: SortOrder
+  }
+
+  export type SaleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sellerId?: SortOrder
+    productName?: SortOrder
+    createdAt?: SortOrder
+    photoUrl?: SortOrder
+  }
+
+  export type SaleMinOrderByAggregateInput = {
+    id?: SortOrder
+    sellerId?: SortOrder
+    productName?: SortOrder
+    createdAt?: SortOrder
+    photoUrl?: SortOrder
+  }
+
+  export type ReviewCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    buyerId?: SortOrder
+    productName?: SortOrder
+    rating?: SortOrder
+    comment?: SortOrder
+    hash?: SortOrder
+    photoUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ReviewAvgOrderByAggregateInput = {
+    rating?: SortOrder
+  }
+
+  export type ReviewMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    buyerId?: SortOrder
+    productName?: SortOrder
+    rating?: SortOrder
+    comment?: SortOrder
+    hash?: SortOrder
+    photoUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ReviewMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    buyerId?: SortOrder
+    productName?: SortOrder
+    rating?: SortOrder
+    comment?: SortOrder
+    hash?: SortOrder
+    photoUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ReviewSumOrderByAggregateInput = {
+    rating?: SortOrder
+  }
+
+  export type SaleScalarRelationFilter = {
+    is?: SaleWhereInput
+    isNot?: SaleWhereInput
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type ReviewNullableScalarRelationFilter = {
+    is?: ReviewWhereInput | null
+    isNot?: ReviewWhereInput | null
+  }
+
+  export type SaleIntentCountOrderByAggregateInput = {
+    id?: SortOrder
+    saleId?: SortOrder
+    userId?: SortOrder
+    reviewId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SaleIntentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    saleId?: SortOrder
+    userId?: SortOrder
+    reviewId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SaleIntentMinOrderByAggregateInput = {
+    id?: SortOrder
+    saleId?: SortOrder
+    userId?: SortOrder
+    reviewId?: SortOrder
+    createdAt?: SortOrder
+  }
+
   export type UserCreateNestedOneWithoutAccountsInput = {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
@@ -8028,6 +12524,34 @@ export namespace Prisma {
     connect?: AuthenticatorWhereUniqueInput | AuthenticatorWhereUniqueInput[]
   }
 
+  export type SaleCreateNestedManyWithoutUserInput = {
+    create?: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput> | SaleCreateWithoutUserInput[] | SaleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleCreateOrConnectWithoutUserInput | SaleCreateOrConnectWithoutUserInput[]
+    createMany?: SaleCreateManyUserInputEnvelope
+    connect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+  }
+
+  export type ReviewCreateNestedManyWithoutUserInput = {
+    create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type ReviewCreateNestedManyWithoutBuyerInput = {
+    create?: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput> | ReviewCreateWithoutBuyerInput[] | ReviewUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutBuyerInput | ReviewCreateOrConnectWithoutBuyerInput[]
+    createMany?: ReviewCreateManyBuyerInputEnvelope
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type SaleIntentCreateNestedManyWithoutUserInput = {
+    create?: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput> | SaleIntentCreateWithoutUserInput[] | SaleIntentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutUserInput | SaleIntentCreateOrConnectWithoutUserInput[]
+    createMany?: SaleIntentCreateManyUserInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -8047,6 +12571,34 @@ export namespace Prisma {
     connectOrCreate?: AuthenticatorCreateOrConnectWithoutUserInput | AuthenticatorCreateOrConnectWithoutUserInput[]
     createMany?: AuthenticatorCreateManyUserInputEnvelope
     connect?: AuthenticatorWhereUniqueInput | AuthenticatorWhereUniqueInput[]
+  }
+
+  export type SaleUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput> | SaleCreateWithoutUserInput[] | SaleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleCreateOrConnectWithoutUserInput | SaleCreateOrConnectWithoutUserInput[]
+    createMany?: SaleCreateManyUserInputEnvelope
+    connect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+  }
+
+  export type ReviewUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type ReviewUncheckedCreateNestedManyWithoutBuyerInput = {
+    create?: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput> | ReviewCreateWithoutBuyerInput[] | ReviewUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutBuyerInput | ReviewCreateOrConnectWithoutBuyerInput[]
+    createMany?: ReviewCreateManyBuyerInputEnvelope
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type SaleIntentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput> | SaleIntentCreateWithoutUserInput[] | SaleIntentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutUserInput | SaleIntentCreateOrConnectWithoutUserInput[]
+    createMany?: SaleIntentCreateManyUserInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8095,6 +12647,62 @@ export namespace Prisma {
     deleteMany?: AuthenticatorScalarWhereInput | AuthenticatorScalarWhereInput[]
   }
 
+  export type SaleUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput> | SaleCreateWithoutUserInput[] | SaleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleCreateOrConnectWithoutUserInput | SaleCreateOrConnectWithoutUserInput[]
+    upsert?: SaleUpsertWithWhereUniqueWithoutUserInput | SaleUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SaleCreateManyUserInputEnvelope
+    set?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    disconnect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    delete?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    connect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    update?: SaleUpdateWithWhereUniqueWithoutUserInput | SaleUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SaleUpdateManyWithWhereWithoutUserInput | SaleUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SaleScalarWhereInput | SaleScalarWhereInput[]
+  }
+
+  export type ReviewUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    upsert?: ReviewUpsertWithWhereUniqueWithoutUserInput | ReviewUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
+    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    update?: ReviewUpdateWithWhereUniqueWithoutUserInput | ReviewUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ReviewUpdateManyWithWhereWithoutUserInput | ReviewUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type ReviewUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput> | ReviewCreateWithoutBuyerInput[] | ReviewUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutBuyerInput | ReviewCreateOrConnectWithoutBuyerInput[]
+    upsert?: ReviewUpsertWithWhereUniqueWithoutBuyerInput | ReviewUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: ReviewCreateManyBuyerInputEnvelope
+    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    update?: ReviewUpdateWithWhereUniqueWithoutBuyerInput | ReviewUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: ReviewUpdateManyWithWhereWithoutBuyerInput | ReviewUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type SaleIntentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput> | SaleIntentCreateWithoutUserInput[] | SaleIntentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutUserInput | SaleIntentCreateOrConnectWithoutUserInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutUserInput | SaleIntentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SaleIntentCreateManyUserInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutUserInput | SaleIntentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutUserInput | SaleIntentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -8137,6 +12745,62 @@ export namespace Prisma {
     deleteMany?: AuthenticatorScalarWhereInput | AuthenticatorScalarWhereInput[]
   }
 
+  export type SaleUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput> | SaleCreateWithoutUserInput[] | SaleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleCreateOrConnectWithoutUserInput | SaleCreateOrConnectWithoutUserInput[]
+    upsert?: SaleUpsertWithWhereUniqueWithoutUserInput | SaleUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SaleCreateManyUserInputEnvelope
+    set?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    disconnect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    delete?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    connect?: SaleWhereUniqueInput | SaleWhereUniqueInput[]
+    update?: SaleUpdateWithWhereUniqueWithoutUserInput | SaleUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SaleUpdateManyWithWhereWithoutUserInput | SaleUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SaleScalarWhereInput | SaleScalarWhereInput[]
+  }
+
+  export type ReviewUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    upsert?: ReviewUpsertWithWhereUniqueWithoutUserInput | ReviewUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
+    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    update?: ReviewUpdateWithWhereUniqueWithoutUserInput | ReviewUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ReviewUpdateManyWithWhereWithoutUserInput | ReviewUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type ReviewUncheckedUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput> | ReviewCreateWithoutBuyerInput[] | ReviewUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ReviewCreateOrConnectWithoutBuyerInput | ReviewCreateOrConnectWithoutBuyerInput[]
+    upsert?: ReviewUpsertWithWhereUniqueWithoutBuyerInput | ReviewUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: ReviewCreateManyBuyerInputEnvelope
+    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+    update?: ReviewUpdateWithWhereUniqueWithoutBuyerInput | ReviewUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: ReviewUpdateManyWithWhereWithoutBuyerInput | ReviewUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput> | SaleIntentCreateWithoutUserInput[] | SaleIntentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutUserInput | SaleIntentCreateOrConnectWithoutUserInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutUserInput | SaleIntentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SaleIntentCreateManyUserInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutUserInput | SaleIntentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutUserInput | SaleIntentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutAuthenticatorInput = {
     create?: XOR<UserCreateWithoutAuthenticatorInput, UserUncheckedCreateWithoutAuthenticatorInput>
     connectOrCreate?: UserCreateOrConnectWithoutAuthenticatorInput
@@ -8161,6 +12825,178 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAuthenticatorInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAuthenticatorInput, UserUpdateWithoutAuthenticatorInput>, UserUncheckedUpdateWithoutAuthenticatorInput>
+  }
+
+  export type UserCreateNestedOneWithoutSaleInput = {
+    create?: XOR<UserCreateWithoutSaleInput, UserUncheckedCreateWithoutSaleInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSaleInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type SaleIntentCreateNestedManyWithoutSaleInput = {
+    create?: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput> | SaleIntentCreateWithoutSaleInput[] | SaleIntentUncheckedCreateWithoutSaleInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutSaleInput | SaleIntentCreateOrConnectWithoutSaleInput[]
+    createMany?: SaleIntentCreateManySaleInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+  }
+
+  export type SaleIntentUncheckedCreateNestedManyWithoutSaleInput = {
+    create?: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput> | SaleIntentCreateWithoutSaleInput[] | SaleIntentUncheckedCreateWithoutSaleInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutSaleInput | SaleIntentCreateOrConnectWithoutSaleInput[]
+    createMany?: SaleIntentCreateManySaleInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutSaleNestedInput = {
+    create?: XOR<UserCreateWithoutSaleInput, UserUncheckedCreateWithoutSaleInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSaleInput
+    upsert?: UserUpsertWithoutSaleInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSaleInput, UserUpdateWithoutSaleInput>, UserUncheckedUpdateWithoutSaleInput>
+  }
+
+  export type SaleIntentUpdateManyWithoutSaleNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput> | SaleIntentCreateWithoutSaleInput[] | SaleIntentUncheckedCreateWithoutSaleInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutSaleInput | SaleIntentCreateOrConnectWithoutSaleInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutSaleInput | SaleIntentUpsertWithWhereUniqueWithoutSaleInput[]
+    createMany?: SaleIntentCreateManySaleInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutSaleInput | SaleIntentUpdateWithWhereUniqueWithoutSaleInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutSaleInput | SaleIntentUpdateManyWithWhereWithoutSaleInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutSaleNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput> | SaleIntentCreateWithoutSaleInput[] | SaleIntentUncheckedCreateWithoutSaleInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutSaleInput | SaleIntentCreateOrConnectWithoutSaleInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutSaleInput | SaleIntentUpsertWithWhereUniqueWithoutSaleInput[]
+    createMany?: SaleIntentCreateManySaleInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutSaleInput | SaleIntentUpdateWithWhereUniqueWithoutSaleInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutSaleInput | SaleIntentUpdateManyWithWhereWithoutSaleInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutReviewsAsUserInput = {
+    create?: XOR<UserCreateWithoutReviewsAsUserInput, UserUncheckedCreateWithoutReviewsAsUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewsAsUserInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutReviewsAsBuyerInput = {
+    create?: XOR<UserCreateWithoutReviewsAsBuyerInput, UserUncheckedCreateWithoutReviewsAsBuyerInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewsAsBuyerInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type SaleIntentCreateNestedManyWithoutReviewInput = {
+    create?: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput> | SaleIntentCreateWithoutReviewInput[] | SaleIntentUncheckedCreateWithoutReviewInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutReviewInput | SaleIntentCreateOrConnectWithoutReviewInput[]
+    createMany?: SaleIntentCreateManyReviewInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+  }
+
+  export type SaleIntentUncheckedCreateNestedManyWithoutReviewInput = {
+    create?: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput> | SaleIntentCreateWithoutReviewInput[] | SaleIntentUncheckedCreateWithoutReviewInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutReviewInput | SaleIntentCreateOrConnectWithoutReviewInput[]
+    createMany?: SaleIntentCreateManyReviewInputEnvelope
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutReviewsAsUserNestedInput = {
+    create?: XOR<UserCreateWithoutReviewsAsUserInput, UserUncheckedCreateWithoutReviewsAsUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewsAsUserInput
+    upsert?: UserUpsertWithoutReviewsAsUserInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReviewsAsUserInput, UserUpdateWithoutReviewsAsUserInput>, UserUncheckedUpdateWithoutReviewsAsUserInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutReviewsAsBuyerNestedInput = {
+    create?: XOR<UserCreateWithoutReviewsAsBuyerInput, UserUncheckedCreateWithoutReviewsAsBuyerInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewsAsBuyerInput
+    upsert?: UserUpsertWithoutReviewsAsBuyerInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReviewsAsBuyerInput, UserUpdateWithoutReviewsAsBuyerInput>, UserUncheckedUpdateWithoutReviewsAsBuyerInput>
+  }
+
+  export type SaleIntentUpdateManyWithoutReviewNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput> | SaleIntentCreateWithoutReviewInput[] | SaleIntentUncheckedCreateWithoutReviewInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutReviewInput | SaleIntentCreateOrConnectWithoutReviewInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutReviewInput | SaleIntentUpsertWithWhereUniqueWithoutReviewInput[]
+    createMany?: SaleIntentCreateManyReviewInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutReviewInput | SaleIntentUpdateWithWhereUniqueWithoutReviewInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutReviewInput | SaleIntentUpdateManyWithWhereWithoutReviewInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutReviewNestedInput = {
+    create?: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput> | SaleIntentCreateWithoutReviewInput[] | SaleIntentUncheckedCreateWithoutReviewInput[]
+    connectOrCreate?: SaleIntentCreateOrConnectWithoutReviewInput | SaleIntentCreateOrConnectWithoutReviewInput[]
+    upsert?: SaleIntentUpsertWithWhereUniqueWithoutReviewInput | SaleIntentUpsertWithWhereUniqueWithoutReviewInput[]
+    createMany?: SaleIntentCreateManyReviewInputEnvelope
+    set?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    disconnect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    delete?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    connect?: SaleIntentWhereUniqueInput | SaleIntentWhereUniqueInput[]
+    update?: SaleIntentUpdateWithWhereUniqueWithoutReviewInput | SaleIntentUpdateWithWhereUniqueWithoutReviewInput[]
+    updateMany?: SaleIntentUpdateManyWithWhereWithoutReviewInput | SaleIntentUpdateManyWithWhereWithoutReviewInput[]
+    deleteMany?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+  }
+
+  export type SaleCreateNestedOneWithoutSaleIntentInput = {
+    create?: XOR<SaleCreateWithoutSaleIntentInput, SaleUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutSaleIntentInput
+    connect?: SaleWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutSaleIntentInput = {
+    create?: XOR<UserCreateWithoutSaleIntentInput, UserUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSaleIntentInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ReviewCreateNestedOneWithoutSaleIntentInput = {
+    create?: XOR<ReviewCreateWithoutSaleIntentInput, ReviewUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: ReviewCreateOrConnectWithoutSaleIntentInput
+    connect?: ReviewWhereUniqueInput
+  }
+
+  export type SaleUpdateOneRequiredWithoutSaleIntentNestedInput = {
+    create?: XOR<SaleCreateWithoutSaleIntentInput, SaleUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: SaleCreateOrConnectWithoutSaleIntentInput
+    upsert?: SaleUpsertWithoutSaleIntentInput
+    connect?: SaleWhereUniqueInput
+    update?: XOR<XOR<SaleUpdateToOneWithWhereWithoutSaleIntentInput, SaleUpdateWithoutSaleIntentInput>, SaleUncheckedUpdateWithoutSaleIntentInput>
+  }
+
+  export type UserUpdateOneWithoutSaleIntentNestedInput = {
+    create?: XOR<UserCreateWithoutSaleIntentInput, UserUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSaleIntentInput
+    upsert?: UserUpsertWithoutSaleIntentInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSaleIntentInput, UserUpdateWithoutSaleIntentInput>, UserUncheckedUpdateWithoutSaleIntentInput>
+  }
+
+  export type ReviewUpdateOneWithoutSaleIntentNestedInput = {
+    create?: XOR<ReviewCreateWithoutSaleIntentInput, ReviewUncheckedCreateWithoutSaleIntentInput>
+    connectOrCreate?: ReviewCreateOrConnectWithoutSaleIntentInput
+    upsert?: ReviewUpsertWithoutSaleIntentInput
+    disconnect?: ReviewWhereInput | boolean
+    delete?: ReviewWhereInput | boolean
+    connect?: ReviewWhereUniqueInput
+    update?: XOR<XOR<ReviewUpdateToOneWithWhereWithoutSaleIntentInput, ReviewUpdateWithoutSaleIntentInput>, ReviewUncheckedUpdateWithoutSaleIntentInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8368,20 +13204,30 @@ export namespace Prisma {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8404,40 +13250,60 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8460,20 +13326,30 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -8563,6 +13439,124 @@ export namespace Prisma {
 
   export type AuthenticatorCreateManyUserInputEnvelope = {
     data: AuthenticatorCreateManyUserInput | AuthenticatorCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SaleCreateWithoutUserInput = {
+    id?: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+    SaleIntent?: SaleIntentCreateNestedManyWithoutSaleInput
+  }
+
+  export type SaleUncheckedCreateWithoutUserInput = {
+    id?: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutSaleInput
+  }
+
+  export type SaleCreateOrConnectWithoutUserInput = {
+    where: SaleWhereUniqueInput
+    create: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput>
+  }
+
+  export type SaleCreateManyUserInputEnvelope = {
+    data: SaleCreateManyUserInput | SaleCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReviewCreateWithoutUserInput = {
+    id?: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    buyer: UserCreateNestedOneWithoutReviewsAsBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewUncheckedCreateWithoutUserInput = {
+    id?: string
+    buyerId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewCreateOrConnectWithoutUserInput = {
+    where: ReviewWhereUniqueInput
+    create: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput>
+  }
+
+  export type ReviewCreateManyUserInputEnvelope = {
+    data: ReviewCreateManyUserInput | ReviewCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReviewCreateWithoutBuyerInput = {
+    id?: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutReviewsAsUserInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewUncheckedCreateWithoutBuyerInput = {
+    id?: string
+    userId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutReviewInput
+  }
+
+  export type ReviewCreateOrConnectWithoutBuyerInput = {
+    where: ReviewWhereUniqueInput
+    create: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput>
+  }
+
+  export type ReviewCreateManyBuyerInputEnvelope = {
+    data: ReviewCreateManyBuyerInput | ReviewCreateManyBuyerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SaleIntentCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    sale: SaleCreateNestedOneWithoutSaleIntentInput
+    review?: ReviewCreateNestedOneWithoutSaleIntentInput
+  }
+
+  export type SaleIntentUncheckedCreateWithoutUserInput = {
+    id?: string
+    saleId: string
+    reviewId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentCreateOrConnectWithoutUserInput = {
+    where: SaleIntentWhereUniqueInput
+    create: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput>
+  }
+
+  export type SaleIntentCreateManyUserInputEnvelope = {
+    data: SaleIntentCreateManyUserInput | SaleIntentCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8656,24 +13650,135 @@ export namespace Prisma {
     transports?: StringNullableFilter<"Authenticator"> | string | null
   }
 
+  export type SaleUpsertWithWhereUniqueWithoutUserInput = {
+    where: SaleWhereUniqueInput
+    update: XOR<SaleUpdateWithoutUserInput, SaleUncheckedUpdateWithoutUserInput>
+    create: XOR<SaleCreateWithoutUserInput, SaleUncheckedCreateWithoutUserInput>
+  }
+
+  export type SaleUpdateWithWhereUniqueWithoutUserInput = {
+    where: SaleWhereUniqueInput
+    data: XOR<SaleUpdateWithoutUserInput, SaleUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SaleUpdateManyWithWhereWithoutUserInput = {
+    where: SaleScalarWhereInput
+    data: XOR<SaleUpdateManyMutationInput, SaleUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SaleScalarWhereInput = {
+    AND?: SaleScalarWhereInput | SaleScalarWhereInput[]
+    OR?: SaleScalarWhereInput[]
+    NOT?: SaleScalarWhereInput | SaleScalarWhereInput[]
+    id?: StringFilter<"Sale"> | string
+    sellerId?: StringFilter<"Sale"> | string
+    productName?: StringFilter<"Sale"> | string
+    createdAt?: DateTimeFilter<"Sale"> | Date | string
+    photoUrl?: StringNullableFilter<"Sale"> | string | null
+  }
+
+  export type ReviewUpsertWithWhereUniqueWithoutUserInput = {
+    where: ReviewWhereUniqueInput
+    update: XOR<ReviewUpdateWithoutUserInput, ReviewUncheckedUpdateWithoutUserInput>
+    create: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput>
+  }
+
+  export type ReviewUpdateWithWhereUniqueWithoutUserInput = {
+    where: ReviewWhereUniqueInput
+    data: XOR<ReviewUpdateWithoutUserInput, ReviewUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ReviewUpdateManyWithWhereWithoutUserInput = {
+    where: ReviewScalarWhereInput
+    data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ReviewScalarWhereInput = {
+    AND?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+    OR?: ReviewScalarWhereInput[]
+    NOT?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+    id?: StringFilter<"Review"> | string
+    userId?: StringFilter<"Review"> | string
+    buyerId?: StringFilter<"Review"> | string
+    productName?: StringFilter<"Review"> | string
+    rating?: IntFilter<"Review"> | number
+    comment?: StringNullableFilter<"Review"> | string | null
+    hash?: StringNullableFilter<"Review"> | string | null
+    photoUrl?: StringNullableFilter<"Review"> | string | null
+    createdAt?: DateTimeFilter<"Review"> | Date | string
+  }
+
+  export type ReviewUpsertWithWhereUniqueWithoutBuyerInput = {
+    where: ReviewWhereUniqueInput
+    update: XOR<ReviewUpdateWithoutBuyerInput, ReviewUncheckedUpdateWithoutBuyerInput>
+    create: XOR<ReviewCreateWithoutBuyerInput, ReviewUncheckedCreateWithoutBuyerInput>
+  }
+
+  export type ReviewUpdateWithWhereUniqueWithoutBuyerInput = {
+    where: ReviewWhereUniqueInput
+    data: XOR<ReviewUpdateWithoutBuyerInput, ReviewUncheckedUpdateWithoutBuyerInput>
+  }
+
+  export type ReviewUpdateManyWithWhereWithoutBuyerInput = {
+    where: ReviewScalarWhereInput
+    data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyWithoutBuyerInput>
+  }
+
+  export type SaleIntentUpsertWithWhereUniqueWithoutUserInput = {
+    where: SaleIntentWhereUniqueInput
+    update: XOR<SaleIntentUpdateWithoutUserInput, SaleIntentUncheckedUpdateWithoutUserInput>
+    create: XOR<SaleIntentCreateWithoutUserInput, SaleIntentUncheckedCreateWithoutUserInput>
+  }
+
+  export type SaleIntentUpdateWithWhereUniqueWithoutUserInput = {
+    where: SaleIntentWhereUniqueInput
+    data: XOR<SaleIntentUpdateWithoutUserInput, SaleIntentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SaleIntentUpdateManyWithWhereWithoutUserInput = {
+    where: SaleIntentScalarWhereInput
+    data: XOR<SaleIntentUpdateManyMutationInput, SaleIntentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SaleIntentScalarWhereInput = {
+    AND?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+    OR?: SaleIntentScalarWhereInput[]
+    NOT?: SaleIntentScalarWhereInput | SaleIntentScalarWhereInput[]
+    id?: StringFilter<"SaleIntent"> | string
+    saleId?: StringFilter<"SaleIntent"> | string
+    userId?: StringNullableFilter<"SaleIntent"> | string | null
+    reviewId?: StringNullableFilter<"SaleIntent"> | string | null
+    createdAt?: DateTimeFilter<"SaleIntent"> | Date | string
+  }
+
   export type UserCreateWithoutAuthenticatorInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAuthenticatorInput = {
     id?: string
     name?: string | null
     email?: string | null
+    did?: string | null
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAuthenticatorInput = {
@@ -8696,20 +13801,526 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthenticatorInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutSaleInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSaleInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSaleInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSaleInput, UserUncheckedCreateWithoutSaleInput>
+  }
+
+  export type SaleIntentCreateWithoutSaleInput = {
+    id?: string
+    createdAt?: Date | string
+    user?: UserCreateNestedOneWithoutSaleIntentInput
+    review?: ReviewCreateNestedOneWithoutSaleIntentInput
+  }
+
+  export type SaleIntentUncheckedCreateWithoutSaleInput = {
+    id?: string
+    userId?: string | null
+    reviewId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentCreateOrConnectWithoutSaleInput = {
+    where: SaleIntentWhereUniqueInput
+    create: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput>
+  }
+
+  export type SaleIntentCreateManySaleInputEnvelope = {
+    data: SaleIntentCreateManySaleInput | SaleIntentCreateManySaleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutSaleInput = {
+    update: XOR<UserUpdateWithoutSaleInput, UserUncheckedUpdateWithoutSaleInput>
+    create: XOR<UserCreateWithoutSaleInput, UserUncheckedCreateWithoutSaleInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSaleInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSaleInput, UserUncheckedUpdateWithoutSaleInput>
+  }
+
+  export type UserUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type SaleIntentUpsertWithWhereUniqueWithoutSaleInput = {
+    where: SaleIntentWhereUniqueInput
+    update: XOR<SaleIntentUpdateWithoutSaleInput, SaleIntentUncheckedUpdateWithoutSaleInput>
+    create: XOR<SaleIntentCreateWithoutSaleInput, SaleIntentUncheckedCreateWithoutSaleInput>
+  }
+
+  export type SaleIntentUpdateWithWhereUniqueWithoutSaleInput = {
+    where: SaleIntentWhereUniqueInput
+    data: XOR<SaleIntentUpdateWithoutSaleInput, SaleIntentUncheckedUpdateWithoutSaleInput>
+  }
+
+  export type SaleIntentUpdateManyWithWhereWithoutSaleInput = {
+    where: SaleIntentScalarWhereInput
+    data: XOR<SaleIntentUpdateManyMutationInput, SaleIntentUncheckedUpdateManyWithoutSaleInput>
+  }
+
+  export type UserCreateWithoutReviewsAsUserInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutReviewsAsUserInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutReviewsAsUserInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutReviewsAsUserInput, UserUncheckedCreateWithoutReviewsAsUserInput>
+  }
+
+  export type UserCreateWithoutReviewsAsBuyerInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    SaleIntent?: SaleIntentCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutReviewsAsBuyerInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    SaleIntent?: SaleIntentUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutReviewsAsBuyerInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutReviewsAsBuyerInput, UserUncheckedCreateWithoutReviewsAsBuyerInput>
+  }
+
+  export type SaleIntentCreateWithoutReviewInput = {
+    id?: string
+    createdAt?: Date | string
+    sale: SaleCreateNestedOneWithoutSaleIntentInput
+    user?: UserCreateNestedOneWithoutSaleIntentInput
+  }
+
+  export type SaleIntentUncheckedCreateWithoutReviewInput = {
+    id?: string
+    saleId: string
+    userId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentCreateOrConnectWithoutReviewInput = {
+    where: SaleIntentWhereUniqueInput
+    create: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput>
+  }
+
+  export type SaleIntentCreateManyReviewInputEnvelope = {
+    data: SaleIntentCreateManyReviewInput | SaleIntentCreateManyReviewInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutReviewsAsUserInput = {
+    update: XOR<UserUpdateWithoutReviewsAsUserInput, UserUncheckedUpdateWithoutReviewsAsUserInput>
+    create: XOR<UserCreateWithoutReviewsAsUserInput, UserUncheckedCreateWithoutReviewsAsUserInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutReviewsAsUserInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutReviewsAsUserInput, UserUncheckedUpdateWithoutReviewsAsUserInput>
+  }
+
+  export type UserUpdateWithoutReviewsAsUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutReviewsAsUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUpsertWithoutReviewsAsBuyerInput = {
+    update: XOR<UserUpdateWithoutReviewsAsBuyerInput, UserUncheckedUpdateWithoutReviewsAsBuyerInput>
+    create: XOR<UserCreateWithoutReviewsAsBuyerInput, UserUncheckedCreateWithoutReviewsAsBuyerInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutReviewsAsBuyerInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutReviewsAsBuyerInput, UserUncheckedUpdateWithoutReviewsAsBuyerInput>
+  }
+
+  export type UserUpdateWithoutReviewsAsBuyerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutReviewsAsBuyerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type SaleIntentUpsertWithWhereUniqueWithoutReviewInput = {
+    where: SaleIntentWhereUniqueInput
+    update: XOR<SaleIntentUpdateWithoutReviewInput, SaleIntentUncheckedUpdateWithoutReviewInput>
+    create: XOR<SaleIntentCreateWithoutReviewInput, SaleIntentUncheckedCreateWithoutReviewInput>
+  }
+
+  export type SaleIntentUpdateWithWhereUniqueWithoutReviewInput = {
+    where: SaleIntentWhereUniqueInput
+    data: XOR<SaleIntentUpdateWithoutReviewInput, SaleIntentUncheckedUpdateWithoutReviewInput>
+  }
+
+  export type SaleIntentUpdateManyWithWhereWithoutReviewInput = {
+    where: SaleIntentScalarWhereInput
+    data: XOR<SaleIntentUpdateManyMutationInput, SaleIntentUncheckedUpdateManyWithoutReviewInput>
+  }
+
+  export type SaleCreateWithoutSaleIntentInput = {
+    id?: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+    user: UserCreateNestedOneWithoutSaleInput
+  }
+
+  export type SaleUncheckedCreateWithoutSaleIntentInput = {
+    id?: string
+    sellerId: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+  }
+
+  export type SaleCreateOrConnectWithoutSaleIntentInput = {
+    where: SaleWhereUniqueInput
+    create: XOR<SaleCreateWithoutSaleIntentInput, SaleUncheckedCreateWithoutSaleIntentInput>
+  }
+
+  export type UserCreateWithoutSaleIntentInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorCreateNestedManyWithoutUserInput
+    Sale?: SaleCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewCreateNestedManyWithoutBuyerInput
+  }
+
+  export type UserUncheckedCreateWithoutSaleIntentInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    did?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Authenticator?: AuthenticatorUncheckedCreateNestedManyWithoutUserInput
+    Sale?: SaleUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsUser?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewsAsBuyer?: ReviewUncheckedCreateNestedManyWithoutBuyerInput
+  }
+
+  export type UserCreateOrConnectWithoutSaleIntentInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSaleIntentInput, UserUncheckedCreateWithoutSaleIntentInput>
+  }
+
+  export type ReviewCreateWithoutSaleIntentInput = {
+    id?: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutReviewsAsUserInput
+    buyer: UserCreateNestedOneWithoutReviewsAsBuyerInput
+  }
+
+  export type ReviewUncheckedCreateWithoutSaleIntentInput = {
+    id?: string
+    userId: string
+    buyerId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ReviewCreateOrConnectWithoutSaleIntentInput = {
+    where: ReviewWhereUniqueInput
+    create: XOR<ReviewCreateWithoutSaleIntentInput, ReviewUncheckedCreateWithoutSaleIntentInput>
+  }
+
+  export type SaleUpsertWithoutSaleIntentInput = {
+    update: XOR<SaleUpdateWithoutSaleIntentInput, SaleUncheckedUpdateWithoutSaleIntentInput>
+    create: XOR<SaleCreateWithoutSaleIntentInput, SaleUncheckedCreateWithoutSaleIntentInput>
+    where?: SaleWhereInput
+  }
+
+  export type SaleUpdateToOneWithWhereWithoutSaleIntentInput = {
+    where?: SaleWhereInput
+    data: XOR<SaleUpdateWithoutSaleIntentInput, SaleUncheckedUpdateWithoutSaleIntentInput>
+  }
+
+  export type SaleUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutSaleNestedInput
+  }
+
+  export type SaleUncheckedUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sellerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UserUpsertWithoutSaleIntentInput = {
+    update: XOR<UserUpdateWithoutSaleIntentInput, UserUncheckedUpdateWithoutSaleIntentInput>
+    create: XOR<UserCreateWithoutSaleIntentInput, UserUncheckedCreateWithoutSaleIntentInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSaleIntentInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSaleIntentInput, UserUncheckedUpdateWithoutSaleIntentInput>
+  }
+
+  export type UserUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUpdateManyWithoutUserNestedInput
+    Sale?: SaleUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUpdateManyWithoutBuyerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    did?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Authenticator?: AuthenticatorUncheckedUpdateManyWithoutUserNestedInput
+    Sale?: SaleUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsUser?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewsAsBuyer?: ReviewUncheckedUpdateManyWithoutBuyerNestedInput
+  }
+
+  export type ReviewUpsertWithoutSaleIntentInput = {
+    update: XOR<ReviewUpdateWithoutSaleIntentInput, ReviewUncheckedUpdateWithoutSaleIntentInput>
+    create: XOR<ReviewCreateWithoutSaleIntentInput, ReviewUncheckedCreateWithoutSaleIntentInput>
+    where?: ReviewWhereInput
+  }
+
+  export type ReviewUpdateToOneWithWhereWithoutSaleIntentInput = {
+    where?: ReviewWhereInput
+    data: XOR<ReviewUpdateWithoutSaleIntentInput, ReviewUncheckedUpdateWithoutSaleIntentInput>
+  }
+
+  export type ReviewUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutReviewsAsUserNestedInput
+    buyer?: UserUpdateOneRequiredWithoutReviewsAsBuyerNestedInput
+  }
+
+  export type ReviewUncheckedUpdateWithoutSaleIntentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateManyUserInput = {
@@ -8740,6 +14351,42 @@ export namespace Prisma {
     credentialDeviceType: string
     credentialBackedUp: boolean
     transports?: string | null
+  }
+
+  export type SaleCreateManyUserInput = {
+    id?: string
+    productName: string
+    createdAt?: Date | string
+    photoUrl?: string | null
+  }
+
+  export type ReviewCreateManyUserInput = {
+    id?: string
+    buyerId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ReviewCreateManyBuyerInput = {
+    id?: string
+    userId: string
+    productName: string
+    rating?: number
+    comment?: string | null
+    hash?: string | null
+    photoUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentCreateManyUserInput = {
+    id?: string
+    saleId: string
+    reviewId?: string | null
+    createdAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -8830,6 +14477,176 @@ export namespace Prisma {
     credentialDeviceType?: StringFieldUpdateOperationsInput | string
     credentialBackedUp?: BoolFieldUpdateOperationsInput | boolean
     transports?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SaleUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SaleIntent?: SaleIntentUpdateManyWithoutSaleNestedInput
+  }
+
+  export type SaleUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutSaleNestedInput
+  }
+
+  export type SaleUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReviewUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyer?: UserUpdateOneRequiredWithoutReviewsAsBuyerNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReviewUpdateWithoutBuyerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutReviewsAsUserNestedInput
+    SaleIntent?: SaleIntentUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewUncheckedUpdateWithoutBuyerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    SaleIntent?: SaleIntentUncheckedUpdateManyWithoutReviewNestedInput
+  }
+
+  export type ReviewUncheckedUpdateManyWithoutBuyerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale?: SaleUpdateOneRequiredWithoutSaleIntentNestedInput
+    review?: ReviewUpdateOneWithoutSaleIntentNestedInput
+  }
+
+  export type SaleIntentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentCreateManySaleInput = {
+    id?: string
+    userId?: string | null
+    reviewId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutSaleIntentNestedInput
+    review?: ReviewUpdateOneWithoutSaleIntentNestedInput
+  }
+
+  export type SaleIntentUncheckedUpdateWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutSaleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reviewId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentCreateManyReviewInput = {
+    id?: string
+    saleId: string
+    userId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SaleIntentUpdateWithoutReviewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale?: SaleUpdateOneRequiredWithoutSaleIntentNestedInput
+    user?: UserUpdateOneWithoutSaleIntentNestedInput
+  }
+
+  export type SaleIntentUncheckedUpdateWithoutReviewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SaleIntentUncheckedUpdateManyWithoutReviewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    saleId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

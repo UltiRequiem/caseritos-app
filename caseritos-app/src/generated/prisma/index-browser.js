@@ -146,6 +146,7 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
+  did: 'did',
   emailVerified: 'emailVerified',
   image: 'image'
 };
@@ -165,6 +166,34 @@ exports.Prisma.AuthenticatorScalarFieldEnum = {
   credentialDeviceType: 'credentialDeviceType',
   credentialBackedUp: 'credentialBackedUp',
   transports: 'transports'
+};
+
+exports.Prisma.SaleScalarFieldEnum = {
+  id: 'id',
+  sellerId: 'sellerId',
+  productName: 'productName',
+  createdAt: 'createdAt',
+  photoUrl: 'photoUrl'
+};
+
+exports.Prisma.ReviewScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  buyerId: 'buyerId',
+  productName: 'productName',
+  rating: 'rating',
+  comment: 'comment',
+  hash: 'hash',
+  photoUrl: 'photoUrl',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.SaleIntentScalarFieldEnum = {
+  id: 'id',
+  saleId: 'saleId',
+  userId: 'userId',
+  reviewId: 'reviewId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -188,7 +217,10 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
   VerificationToken: 'VerificationToken',
-  Authenticator: 'Authenticator'
+  Authenticator: 'Authenticator',
+  Sale: 'Sale',
+  Review: 'Review',
+  SaleIntent: 'SaleIntent'
 };
 
 /**

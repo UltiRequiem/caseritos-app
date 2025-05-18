@@ -45,14 +45,19 @@ model Session {
 }
 
 model User {
-  id            String          @id @default(cuid())
-  name          String?
-  email         String?         @unique
-  emailVerified DateTime?       @map("email_verified")
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  Authenticator Authenticator[]
+  id             String          @id @default(cuid())
+  name           String?
+  email          String?         @unique
+  did            String?
+  emailVerified  DateTime?       @map("email_verified")
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  Authenticator  Authenticator[]
+  Sale           Sale[]
+  reviewsAsUser  Review[]        @relation("SellerReviews")
+  reviewsAsBuyer Review[]        @relation("BuyerReviews")
+  SaleIntent     SaleIntent[]
 
   @@map("users")
 }
@@ -79,4 +84,50 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, credentialID])
+}
+
+model Sale {
+  id          String   @id @default(cuid())
+  sellerId    String   @map("seller_id")
+  productName String   @map("product_name")
+  createdAt   DateTime @default(now())
+  photoUrl    String?  @map("photo_url")
+
+  user       User         @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  SaleIntent SaleIntent[]
+
+  @@map("sales")
+}
+
+model Review {
+  id          String  @id @default(cuid())
+  userId      String  @map("user_id")
+  buyerId     String  @map("buyer_id")
+  productName String  @map("product_name")
+  rating      Int     @default(0)
+  comment     String?
+  // if it is null, the review it not correctly reviewed yet
+  hash        String?
+  photoUrl    String? @map("photo_url")
+
+  createdAt DateTime @default(now())
+
+  user       User         @relation("SellerReviews", fields: [userId], references: [id], onDelete: Cascade)
+  buyer      User         @relation("BuyerReviews", fields: [buyerId], references: [id], onDelete: Cascade)
+  SaleIntent SaleIntent[]
+}
+
+model SaleIntent {
+  id       String  @id @default(cuid())
+  saleId   String  @map("sale_id")
+  userId   String? @map("user_id")
+  reviewId String? @map("review_id")
+
+  createdAt DateTime @default(now())
+
+  sale   Sale    @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  review Review? @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@map("sale_intents")
 }

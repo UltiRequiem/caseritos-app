@@ -148,7 +148,7 @@ export default function VentasPage() {
     setTimeout(() => setLinkCopied(null), 2000);
   };
 
-  const getEstadoBadge = (estado: string, tieneResena: boolean) => {
+  const getBadgeState = (estado: string, tieneResena: boolean) => {
     if (estado === "completada" && tieneResena) {
       return <Badge className="bg-green-500">Completada con reseña</Badge>;
     } else if (estado === "completada") {
@@ -167,77 +167,8 @@ export default function VentasPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <header className="bg-white border-b sticky top-0 z-10">
-        <div className="container mx-auto p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Image
-                src="/logo_caserito_customer.png"
-                alt="Caserito Logo"
-                width={40}
-                height={40}
-                className="rounded-xl"
-              />
-              <h1 className="text-xl font-bold ml-2 hidden sm:block">
-                Caserito
-              </h1>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => router.push("/profile")}
-              >
-                <User className="h-5 w-5" />
-                <span className="ml-2 hidden sm:inline">Mi Perfil</span>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="flex-1 container mx-auto p-4 pb-20 md:pb-4">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Sidebar en pantallas medianas y grandes */}
-          <div className="hidden md:block w-64 shrink-0">
-            <div className="bg-white rounded-xl shadow-sm p-4 sticky top-24">
-              <nav className="space-y-1">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => router.push("/dashboard")}
-                >
-                  <BarChart3 className="h-5 w-5 mr-2" />
-                  Dashboard
-                </Button>
-                <Button
-                  variant="default"
-                  className="w-full justify-start"
-                  onClick={() => router.push("/sales")}
-                >
-                  <ShoppingBag className="h-5 w-5 mr-2" />
-                  Ventas
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => router.push("/resenas")}
-                >
-                  <Star className="h-5 w-5 mr-2" />
-                  Reseñas
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => router.push("/profile")}
-                >
-                  <User className="h-5 w-5 mr-2" />
-                  Mi Perfil
-                </Button>
-              </nav>
-            </div>
-          </div>
-
           {/* Contenido principal */}
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
@@ -344,7 +275,7 @@ export default function VentasPage() {
                           {format(venta.fecha, "d MMM yyyy", { locale: es })}
                         </TableCell>
                         <TableCell>
-                          {getEstadoBadge(venta.estado, venta.tieneResena)}
+                          {getBadgeState(venta.estado, venta.tieneResena)}
                         </TableCell>
                         <TableCell className="text-right font-bold">
                           ${venta.monto.toFixed(2)}
@@ -404,44 +335,6 @@ export default function VentasPage() {
           </div>
         </div>
       </main>
-
-      {/* Barra de navegación móvil */}
-      <div className="md:hidden bg-white border-t fixed bottom-0 left-0 right-0 z-10">
-        <div className="flex justify-around p-2">
-          <Button
-            variant="ghost"
-            className="flex flex-col items-center p-2"
-            onClick={() => router.push("/dashboard")}
-          >
-            <BarChart3 className="h-5 w-5" />
-            <span className="text-xs mt-1">Dashboard</span>
-          </Button>
-          <Button
-            variant="ghost"
-            className="flex flex-col items-center p-2"
-            onClick={() => router.push("/sales")}
-          >
-            <ShoppingBag className="h-5 w-5" />
-            <span className="text-xs mt-1">Ventas</span>
-          </Button>
-          <Button
-            variant="ghost"
-            className="flex flex-col items-center p-2"
-            onClick={() => router.push("/resenas")}
-          >
-            <Star className="h-5 w-5" />
-            <span className="text-xs mt-1">Reseñas</span>
-          </Button>
-          <Button
-            variant="ghost"
-            className="flex flex-col items-center p-2"
-            onClick={() => router.push("/profile")}
-          >
-            <User className="h-5 w-5" />
-            <span className="text-xs mt-1">Perfil</span>
-          </Button>
-        </div>
-      </div>
     </div>
   );
 }
