@@ -1,25 +1,33 @@
 "use client";
 
 import { useState } from "react";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+import { signIn } from "next-auth/react";
 import { FaGoogle } from "react-icons/fa";
+
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
-    setLoading(true);
+    setIsLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await signIn("google", {
+        redirect: false,
+      });
+
       router.push("/dashboard");
     } catch (err) {
-      console.error("Error de autenticación:", err);
+      toast.error("Error al iniciar sesión con Google");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -54,9 +62,9 @@ export default function LoginPage() {
             onClick={handleGoogleLogin}
             className="w-full py-6 text-base flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300"
             variant="outline"
-            disabled={loading}
+            disabled={isLoading}
           >
-            {!loading && <FaGoogle className="h-5 w-5 text-caserito-blue" />}
+            {!isLoading && <FaGoogle className="h-5 w-5 text-caserito-blue" />}
             Continuar con Google
           </Button>
 
