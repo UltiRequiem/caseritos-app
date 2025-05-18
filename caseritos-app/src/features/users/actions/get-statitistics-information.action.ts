@@ -1,26 +1,26 @@
 import { auth } from "@/auth";
 
 interface StatisticInformation {
-  averageRating: number;
-  totalReviews: number;
-  totalSellsCurrentMonth: number;
+	averageRating: number;
+	totalReviews: number;
+	totalSellsCurrentMonth: number;
 }
 
 export const getStatisticsInformationAction =
-  async (): Promise<StatisticInformation> => {
-    const session = await auth();
+	async (): Promise<StatisticInformation> => {
+		const session = await auth();
 
-    if (!session) {
-      return {
-        averageRating: 0,
-        totalReviews: 0,
-        totalSellsCurrentMonth: 0,
-      };
-    }
+		if (!session) {
+			return {
+				averageRating: 0,
+				totalReviews: 0,
+				totalSellsCurrentMonth: 0,
+			};
+		}
 
-    return {
-      averageRating: 4.5,
-      totalReviews: 100,
-      totalSellsCurrentMonth: 1000,
-    };
-  };
+		return {
+			averageRating: 4.5,
+			totalReviews: 100,
+			totalSellsCurrentMonth: 1000,
+		};
+	};

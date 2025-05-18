@@ -1,12 +1,12 @@
 "use server";
 
 import { auth } from "@/auth";
-import { Review } from "@/generated/prisma";
+import type { Review } from "@/generated/prisma";
 
 export const getRecentReviewsAction = async (): Promise<Review[]> => {
-  const session = await auth();
+	const session = await auth();
 
-  if (!session) return [];
+	if (!session) return [];
 
-  return [];
+	return [];
 };
