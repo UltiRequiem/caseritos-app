@@ -50,7 +50,11 @@ const ventaEjemplo = {
   fecha: new Date(),
 };
 
-export default function DejarResena({ params }: { params: { id: string } }) {
+export default async function DejarResena(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
+
   const router = useRouter();
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState("");

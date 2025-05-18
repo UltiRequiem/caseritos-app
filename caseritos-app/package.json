@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:cloudflare": "opennextjs-cloudflare build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "opennextjs-cloudflare build && wrangler deploy",
+    "preview": "opennextjs-cloudflare build && wrangler dev"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.13",
@@ -32,6 +35,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.0.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
