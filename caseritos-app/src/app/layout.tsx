@@ -4,26 +4,26 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
 const interSans = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+	variable: "--font-geist-sans",
+	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Caserito",
-  description: "Crea confianza en tus ventas",
+	title: "Caserito",
+	description: "Crea confianza en tus ventas",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="es">
-      <body className={`${interSans.variable} antialiased`}>
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="es">
+			<body className={`${interSans.variable} antialiased`}>
+				{children}
+				<Toaster />
+			</body>
+		</html>
+	);
 }

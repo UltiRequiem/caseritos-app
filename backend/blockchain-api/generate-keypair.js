@@ -11,20 +11,20 @@ console.log(`Public Key: ${publicKey}`);
 console.log(`Private Key: ${privateKey}`);
 console.log("\n=== Instructions ===");
 console.log(
-  "1. Add this key to your NEAR account using the NEAR CLI or web wallet:"
+	"1. Add this key to your NEAR account using the NEAR CLI or web wallet:",
 );
 console.log(`   near login`);
 console.log(
-  `   near add-key ${process.env.CONTRACT_ID} ${publicKey} --networkId testnet`
+	`   near add-key ${process.env.CONTRACT_ID} ${publicKey} --networkId testnet`,
 );
 console.log(
-  "\n2. Or update your .env file with the current private key associated with your account.\n"
+	"\n2. Or update your .env file with the current private key associated with your account.\n",
 );
 
 const keyData = {
-  accountId: process.env.CONTRACT_ID,
-  publicKey,
-  privateKey,
+	accountId: process.env.CONTRACT_ID,
+	publicKey,
+	privateKey,
 };
 
 fs.writeFileSync("keypair-info.json", JSON.stringify(keyData, null, 2));

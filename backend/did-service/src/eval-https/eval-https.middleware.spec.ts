@@ -1,8 +1,8 @@
-import { ConfigService } from '@nestjs/config';
-import { EvalHttpsMiddleware } from './eval-https.middleware';
+import { ConfigService } from "@nestjs/config";
+import { EvalHttpsMiddleware } from "./eval-https.middleware";
 
-describe('EvalHttpsMiddleware', () => {
-  it('should be defined', () => {
-    expect(new EvalHttpsMiddleware(new ConfigService())).toBeDefined();
-  });
+describe("EvalHttpsMiddleware", () => {
+	it("should be defined", () => {
+		expect(new EvalHttpsMiddleware(new ConfigService())).toBeDefined();
+	});
 });

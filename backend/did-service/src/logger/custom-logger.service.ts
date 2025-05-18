@@ -1,8 +1,8 @@
-import { LoggerService } from '@nestjs/common';
+import type { LoggerService } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
-import { Logger } from 'winston';
-import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Inject } from '@nestjs/common';
+import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
+import type { Logger } from 'winston';
 
 @Injectable()
 export class CustomLoggerService implements LoggerService {

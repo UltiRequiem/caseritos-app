@@ -1,11 +1,11 @@
 import { Controller, Get, InternalServerErrorException, Logger, Query, Redirect, Req } from '@nestjs/common';
-import { Request } from 'express';
-import { SharedVpDto } from './dtos/share-vp.dto';
-import { VerifierService } from './verifier.service';
-import { ConfigService } from '@nestjs/config';
-import { ConfigEnvVars } from 'src/configs';
-import { v4 as uuid } from 'uuid'
+import type { ConfigService } from '@nestjs/config';
+import type { Request } from 'express';
 import { Public } from 'src/auth/decorators/public-auth.decorator';
+import type { ConfigEnvVars } from 'src/configs';
+import { v4 as uuid } from 'uuid'
+import type { SharedVpDto } from './dtos/share-vp.dto';
+import type { VerifierService } from './verifier.service';
 
 @Controller('verifier')
 export class VerifierController {
@@ -32,7 +32,7 @@ export class VerifierController {
   @Redirect()
   async recieveCredential(@Req() req: Request, @Query() query: SharedVpDto) {
 
-    let xCorrelationId: string = "";
+    let xCorrelationId = "";
 
     if (!xCorrelationId) xCorrelationId = uuid()
     try {

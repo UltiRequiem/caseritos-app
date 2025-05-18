@@ -1,1 +1,1 @@
-export { Verify } from './verify.entity';
+export { Verify } from "./verify.entity";

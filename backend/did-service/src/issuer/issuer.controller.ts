@@ -1,17 +1,17 @@
+import { getResolver } from '@kaytrust/did-ethr';
+import { Openid4VCIErrors, createJWTVc, createPayloadVCV1, verifyJwtProof } from '@kaytrust/openid4vci';
 import { BadRequestException, Body, Controller, Get, Headers, HttpException, HttpStatus, Logger, NotFoundException, Param, Post, Req, ValidationPipe } from '@nestjs/common';
-import { Request } from 'express';
-import { getFormatterErrorMessages, getNearResolver, siteUrl } from 'src/common/utils/functions';
-import { IssuerService } from './issuer.service';
-import { ConfigService } from '@nestjs/config';
-import { ConfigEnvVars } from 'src/configs';
-import { CredentialRequestDto } from './dtos/credential-request.dto';
-import {v4 as uuid} from 'uuid'
-import { createPayloadVCV1, Openid4VCIErrors, createJWTVc, verifyJwtProof } from '@kaytrust/openid4vci';
-import { IssuerErrorCode, IssuerErrors } from './constants/issuer-errors';
-import { Public } from 'src/auth/decorators/public-auth.decorator';
+import type { ConfigService } from '@nestjs/config';
 import { ApiBearerAuth, ApiParam } from '@nestjs/swagger';
 import { Resolver } from 'did-resolver'
-import { getResolver } from '@kaytrust/did-ethr';
+import type { Request } from 'express';
+import { Public } from 'src/auth/decorators/public-auth.decorator';
+import { getFormatterErrorMessages, getNearResolver, siteUrl } from 'src/common/utils/functions';
+import type { ConfigEnvVars } from 'src/configs';
+import {v4 as uuid} from 'uuid'
+import { type IssuerErrorCode, IssuerErrors } from './constants/issuer-errors';
+import type { CredentialRequestDto } from './dtos/credential-request.dto';
+import type { IssuerService } from './issuer.service';
 
 @Controller('issuer')
 export class IssuerController {

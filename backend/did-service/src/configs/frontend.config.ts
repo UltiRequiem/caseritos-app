@@ -1,7 +1,7 @@
 export default () => {
-  const { FRONTEND_BASE_URL } = process.env;
+	const { FRONTEND_BASE_URL } = process.env;
 
-  return {
-    FRONTEND_BASE_URL: FRONTEND_BASE_URL ?? "",
-  };
+	return {
+		FRONTEND_BASE_URL: FRONTEND_BASE_URL ?? "",
+	};
 };

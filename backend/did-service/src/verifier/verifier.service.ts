@@ -1,19 +1,19 @@
+import { Resolver, getResolver } from '@kaytrust/did-ethr';
+import {type JwtCredentialPayload, type JwtPresentationPayload, ProofTypeJWT, VerifiedPresentation} from '@kaytrust/prooftypes'
 import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
-import {JwtCredentialPayload, JwtPresentationPayload, ProofTypeJWT, VerifiedPresentation} from '@kaytrust/prooftypes'
-import { getResolver, Resolver } from '@kaytrust/did-ethr';
-import { ConfigService } from '@nestjs/config';
-import { ConfigEnvVars } from 'src/configs';
-import * as jose from 'jose'
-import { VpEvalError } from './errors/vp-eval.error';
-import { plainToInstance } from 'class-transformer';
-import { generarHash, getNearResolver } from 'src/common/utils/functions';
-import { CreateVerifyDto } from './dtos/create-verify.dto';
+import type { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { plainToInstance } from 'class-transformer';
+import * as jose from 'jose'
+import { generarHash, getNearResolver } from 'src/common/utils/functions';
+import type { ConfigEnvVars } from 'src/configs';
+import type { SocketService } from 'src/socket/services/socket.service';
+import type { Repository } from 'typeorm';
+import { CreateVerifyDto } from './dtos/create-verify.dto';
+import type { VerifyDto } from './dtos/verify.dto';
 import { Verify } from './entities';
-import { VerifyDto } from './dtos/verify.dto';
+import { VpEvalError } from './errors/vp-eval.error';
 import { sanitizeVerify } from './helpers/sanitize-user';
-import { SocketService } from 'src/socket/services/socket.service';
 
 @Injectable()
 export class VerifierService {
