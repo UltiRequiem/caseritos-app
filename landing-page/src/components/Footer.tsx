@@ -138,7 +138,7 @@ export const Footer = () => {
 
 				<div className="border-t border-gray-800 mt-10 pt-8 text-center text-gray-400">
 					<p>
-						&copy; {new Date().getFullYear()} Caserito. Todos los derechos
+						&copy; {new Date().getFullYear()} Eliaz Bobadilla & Fransua Plasenca. Todos los derechos
 						reservados.
 					</p>
 				</div>
